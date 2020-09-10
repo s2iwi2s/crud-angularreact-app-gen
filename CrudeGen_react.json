@@ -56,58 +56,46 @@
 	},
 	"OBJECTS": [
 		{
-			"NAME": "PartItem",
+			"NAME": "Customer",
 			"FIELDS": [
 				{
-					"LABEL": "Name",
-					"NAME": "Name",
+					"LABEL": "First Name",
+					"NAME": "firstName",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
 				},
 				{
-					"LABEL": "Description",
-					"NAME": "Description",
+					"LABEL": "Last Name",
+					"NAME": "lastName",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
 				},
 				{
-					"LABEL": "Serialized",
-					"NAME": "Serialized",
-					"TYPE": "String",
-					"MAPPING": "",
-					"REQUIRED": "Y"
-				}
-			]
-		},
-		{
-			"NAME": "SerialItem",
-			"FIELDS": [
-				{
-					"LABEL": "Name",
-					"NAME": "Name",
+					"LABEL": "Address 1",
+					"NAME": "address1",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
 				},
 				{
-					"LABEL": "Description",
-					"NAME": "Description",
+					"LABEL": "Address 2",
+					"NAME": "address2",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "N"
+				},
+				{
+					"LABEL": "City",
+					"NAME": "city",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
 				},
 				{
-					"LABEL": "Part Item",
-					"NAME": "PartItem",
-					"TYPE": "PartItem",
-					"MAPPING": "@ManyToOne",
-					"REQUIRED": "Y"
-				},
-				{
-					"LABEL": "Status",
-					"NAME": "Status",
+					"LABEL": "State",
+					"NAME": "state",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"

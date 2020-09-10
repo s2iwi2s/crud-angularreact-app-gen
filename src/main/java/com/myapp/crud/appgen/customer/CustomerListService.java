@@ -1,4 +1,4 @@
-package com.myapp.crud.appgen.XYclassYX;
+package com.myapp.crud.appgen.customer;
 
 
 import java.util.List;
@@ -18,13 +18,15 @@ import lombok.Setter;
 @Setter
 @Component
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class XYCLASSYXListService {
+public class CustomerListService {
 	@Autowired
 	private CodeGroupsService codeGroupsService;
 
-XYtmpllistservice-varYX
+
 	
-	public XYCLASSYXListService(CodeGroupsService codeGroupsService) {
-XYtmpllistservice-initYX
+	public CustomerListService(CodeGroupsService codeGroupsService) {
+
 	}
 }
+
+

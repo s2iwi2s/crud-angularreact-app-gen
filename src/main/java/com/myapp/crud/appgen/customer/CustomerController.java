@@ -1,4 +1,4 @@
-package com.myapp.crud.appgen.XYclassYX;
+package com.myapp.crud.appgen.customer;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -23,114 +23,114 @@ import com.myapp.crud.appgen.codeGroups.CodeGroupsService;
 
 @RestController()
 @RequestMapping(path = "/api")
-public class XYCLASSYXController {
+public class CustomerController {
 
 	@Autowired
-	private XYCLASSYXService XYclassYXService;
+	private CustomerService customerService;
 
 	@Autowired
 	private CodeGroupsService codeGroupsService;
 	
-	private XYCLASSYXListService getXYCLASSYXListService () {
-		return new XYCLASSYXListService(codeGroupsService);
+	private CustomerListService getCustomerListService () {
+		return new CustomerListService(codeGroupsService);
 	}
 
-	public XYCLASSYXController() {
+	public CustomerController() {
 	}
 
-	@GetMapping("/XYclassYXs")
+	@GetMapping("/customers")
 	@CrossOrigin(origins = Constants.CLIENT_URL)
-	public XYCLASSYXResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
+	public CustomerResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
 //		  @SortDefault.SortDefaults({
 //		  @SortDefault(sort = "dateRecorded", direction = Sort.Direction.DESC),
 //		  @SortDefault(sort = "encounterId", direction = Sort.Direction.ASC)
 //		})
 		Pageable pageable) {
-		System.out.println("\n*** ENTERED ==>/XYclassYXList");
+		System.out.println("\n*** ENTERED ==>/customerList");
 		ResponseStatus status = new ResponseStatus();
-		XYCLASSYXResponse res = new XYCLASSYXResponse(status);
+		CustomerResponse res = new CustomerResponse(status);
 
-		Page XYclassYXList = null;
+		Page customerList = null;
 		try {
-			XYclassYXList = XYclassYXService.findByAll(pageable);
+			customerList = customerService.findByAll(pageable);
 			status.setMessage("SUCCESS!");
 
-//			jInfo(XYclassYXList);
+//			jInfo(customerList);
 		} catch (Exception e) {
 			status.setException(e);
 			e.printStackTrace();
 		}
-		res.setXYCLASSYXList(XYclassYXList);
-		System.out.println("END ==>/XYclassYXList");
+		res.setCustomerList(customerList);
+		System.out.println("END ==>/customerList");
 		return res;
 	}
 
-	@DeleteMapping("/XYclassYXs/{id}")
+	@DeleteMapping("/customers/{id}")
 	@CrossOrigin(origins = Constants.CLIENT_URL)
-	public XYCLASSYXResponse delete(@PathVariable("id") Long id) {
-		System.out.println("\n*** ENTERED ==>/XYclassYX/" + id);
+	public CustomerResponse delete(@PathVariable("id") Long id) {
+		System.out.println("\n*** ENTERED ==>/customer/" + id);
 
 		ResponseStatus status = new ResponseStatus();
-		XYCLASSYXResponse res = new XYCLASSYXResponse(status);
+		CustomerResponse res = new CustomerResponse(status);
 		try {
-			XYclassYXService.deleteById(id);
+			customerService.deleteById(id);
 			status.setMessage("SUCCESS!");
-//			jInfo(XYclassYX);
+//			jInfo(customer);
 		} catch (Exception e) {
 			e.printStackTrace();
 
 			status.setException(e);
 		}
-		System.out.println("END ==>/XYclassYX/delete/" + id);
+		System.out.println("END ==>/customer/delete/" + id);
 		return res;
 	}
 
-	@GetMapping("/XYclassYXs/{id}")
+	@GetMapping("/customers/{id}")
 	@CrossOrigin(origins = Constants.CLIENT_URL)
-	public XYCLASSYXResponse get(@PathVariable("id") Long id) {
-		System.out.println("\n*** ENTERED ==>/XYclassYX/" + id);
-		XYCLASSYX XYclassYX = null;
+	public CustomerResponse get(@PathVariable("id") Long id) {
+		System.out.println("\n*** ENTERED ==>/customer/" + id);
+		Customer customer = null;
 		ResponseStatus status = new ResponseStatus();
-		XYCLASSYXResponse res = new XYCLASSYXResponse(status, getXYCLASSYXListService());
+		CustomerResponse res = new CustomerResponse(status, getCustomerListService());
 		try {
-			XYclassYX = XYclassYXService.findById(id);
+			customer = customerService.findById(id);
 			status.setMessage("SUCCESS!");
-//			jInfo(XYclassYX);
+//			jInfo(customer);
 		} catch (Exception e) {
-			XYclassYX = new XYCLASSYX();
+			customer = new Customer();
 			e.printStackTrace();
 
 			status.setException(e);
 		}
 
-		res.setXYCLASSYX(XYclassYX);
-		System.out.println("END ==>/XYclassYX/" + id);
+		res.setCustomer(customer);
+		System.out.println("END ==>/customer/" + id);
 		return res;
 	}
 
-	@PostMapping(path = "/XYclassYXs", consumes = { MediaType.APPLICATION_JSON_VALUE })
+	@PostMapping(path = "/customers", consumes = { MediaType.APPLICATION_JSON_VALUE })
 	@CrossOrigin(origins = Constants.CLIENT_URL)
-	public XYCLASSYX save(@RequestBody XYCLASSYX XYclassYX) {
-		System.out.println("\n*** ENTERED ==>XYclassYX/save");
+	public Customer save(@RequestBody Customer customer) {
+		System.out.println("\n*** ENTERED ==>customer/save");
 		ResponseStatus status = new ResponseStatus();
-		XYCLASSYXResponse res = new XYCLASSYXResponse(status, getXYCLASSYXListService());
+		CustomerResponse res = new CustomerResponse(status, getCustomerListService());
 		try {
 //			System.out.println("#######################");
-//			jInfo(XYclassYX);
+//			jInfo(customer);
 //			System.out.println("#######################");
-			XYclassYXService.save(XYclassYX);
+			customerService.save(customer);
 			status.setMessage("SUCCESS!");
 //			System.out.println("=======================");
-//			jInfo(XYclassYX);
+//			jInfo(customer);
 //			System.out.println("=======================");
 		} catch (Exception e) {
-			XYclassYX = new XYCLASSYX();
+			customer = new Customer();
 			status.setException(e);
 			e.printStackTrace();
 		}
-		res.setXYCLASSYX(XYclassYX);
-		System.out.println("END ==>XYclassYX/save");
-		return XYclassYX;
+		res.setCustomer(customer);
+		System.out.println("END ==>customer/save");
+		return customer;
 	}
 
 	private void jInfo(Object obj) {
@@ -143,3 +143,5 @@ public class XYCLASSYXController {
 		}
 	}
 }
+
+
