@@ -1,5 +1,6 @@
           <FormControl fullWidth margin="normal">
-            <TextField label="XYfield-label-tmplYX" placeholder="Enter XYfield-label-tmplYX"
+			<InputLabel shrink id="XYfield-var-tmplYX-label">XYfield-label-tmplYX</InputLabel>
+            <TextField labelId="XYfield-var-tmplYX-label" 
               name="XYfield-var-tmplYX" value={this.state.XYfield-var-tmplYX}
               onChange={(e) => this.changeState(e)} />
           </FormControl>

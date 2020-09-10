@@ -92,32 +92,38 @@ export default class CustomerDetailComponent extends React.Component {
         <Typography variant="h4">Customer Detail</Typography>
         <form>
           <FormControl fullWidth margin="normal">
-            <TextField label="First Name" placeholder="Enter First Name"
+			<InputLabel shrink id="firstName-label">First Name</InputLabel>
+            <TextField labelId="firstName-label" 
               name="firstName" value={this.state.firstName}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
-            <TextField label="Last Name" placeholder="Enter Last Name"
+			<InputLabel shrink id="lastName-label">Last Name</InputLabel>
+            <TextField labelId="lastName-label" 
               name="lastName" value={this.state.lastName}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
-            <TextField label="Address 1" placeholder="Enter Address 1"
+			<InputLabel shrink id="address1-label">Address 1</InputLabel>
+            <TextField labelId="address1-label" 
               name="address1" value={this.state.address1}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
-            <TextField label="Address 2" placeholder="Enter Address 2"
+			<InputLabel shrink id="address2-label">Address 2</InputLabel>
+            <TextField labelId="address2-label" 
               name="address2" value={this.state.address2}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
-            <TextField label="City" placeholder="Enter City"
+			<InputLabel shrink id="city-label">City</InputLabel>
+            <TextField labelId="city-label" 
               name="city" value={this.state.city}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
-            <TextField label="State" placeholder="Enter State"
+			<InputLabel shrink id="state-label">State</InputLabel>
+            <TextField labelId="state-label" 
               name="state" value={this.state.state}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
