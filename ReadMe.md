@@ -23,12 +23,11 @@ ng serve -o
 ```
 
 ### Generate Crude Components
-* Before running the main class, configure CrudeGen2_Template.json. Also, refer samples in 'CrudeGen2_ALL_template.json'
-* Main class is CrudeGen2.java and will read json file CrudeGen2_Template.json
+* Before running the main class, configure CrudeGen_java.json/CrudeGen_react.json/CrudeGen_angular.json.
+* Main class is CrudeGen2.java and will read json file CrudeGen_java.json/CrudeGen_react.json/CrudeGen_angular.json
 * After running the main class, you need to add the new component in 'Crud-angular-tmpl/client/src/app/app.module.ts' and 'Crud-angular-tmpl/client/src/app/app-routing.module.ts'
 
-### Sample Object from CrudeGen2_Template.json
-
+### Sample Object from CrudeGen_java.json/CrudeGen_react.json/CrudeGen_angular.json
 ```
 	"OBJECTS": [{
 		"NAME": "MyCases",
