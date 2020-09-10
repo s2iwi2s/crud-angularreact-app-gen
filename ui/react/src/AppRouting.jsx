@@ -13,6 +13,8 @@ import SerialItemListComponent from './forms/serialItem/SerialItemListComponent'
 import SerialItemDetailComponent from './forms/serialItem/SerialItemDetailComponent';
 import CustomerListComponent from './forms/customer/CustomerListComponent';
 import CustomerDetailComponent from './forms/customer/CustomerDetailComponent';
+import ProductListComponent from './forms/product/ProductListComponent';
+import ProductDetailComponent from './forms/product/ProductDetailComponent';
 
 class AppRouting extends React.Component {
  render = () => {
@@ -33,6 +35,8 @@ class AppRouting extends React.Component {
        <Route path="/serial-item-detail/:id" exact component={SerialItemDetailComponent} />
        <Route path="/customer-list" exact component={CustomerListComponent} />
        <Route path="/customer-detail/:id" exact component={CustomerDetailComponent} />
+       <Route path="/product-list" exact component={ProductListComponent} />
+       <Route path="/product-detail/:id" exact component={ProductDetailComponent} />
 
        <Route component={ErrorComponent} />
       </Switch>

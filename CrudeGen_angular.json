@@ -121,6 +121,39 @@
 					"REQUIRED": "Y"
 				}
 			]
+		},
+		{
+			"NAME": "Product",
+			"FIELDS": [
+				{
+					"LABEL": "Item Code",
+					"NAME": "itemCode",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Description",
+					"NAME": "description",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Price",
+					"NAME": "price",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Quantity",
+					"NAME": "quantity",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				}
+			]
 		}
 	]
 }
