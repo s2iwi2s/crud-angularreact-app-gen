@@ -13,6 +13,7 @@ class HeaderComponent extends React.Component {
                     <ul className="navbar-nav">
                         <li key="my-case-list"><Link className="nav-link" to="/my-case-list">My Case List</Link></li>
                         <li key="part-item-list"><Link className="nav-link" to="/part-item-list">Part Item list</Link></li>
+                        <li key="serial-item-list"><Link className="nav-link" to="/serial-item-list">Serial Item list</Link></li>
                     </ul>
                 </nav>
             </header>
