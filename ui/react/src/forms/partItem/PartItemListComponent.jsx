@@ -2,9 +2,9 @@ import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
 import { Table, TableHead, TableRow, TableCell, Button, TableBody, TablePagination } from '@material-ui/core';
-import MyCaseService from '../../api/myCase/MyCaseService';
+import PartItemService from '../../api/partItem/PartItemService';
 
-class MyCaseListComponent extends React.Component {
+class PartItemListComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -20,55 +20,55 @@ class MyCaseListComponent extends React.Component {
     this.retrieve();
   }
   retrieve = () => {
-    MyCaseService.getList(this.state.paging.currentPage, this.state.paging.rowsPerPage)
+    PartItemService.getList(this.state.paging.currentPage, this.state.paging.rowsPerPage)
       .then(response => {
         console.log(response)
         this.setState({
-          list: response.data.myCaseList.content,
-          paging: {
-            rowsPerPage: response.data.myCaseList.size,
-            totalElements: response.data.myCaseList.totalElements,
-            currentPage: response.data.myCaseList.pageable.pageNumber
-          }
-        })
+			list: response.data.partItemList.content ,
+			paging: {
+	            rowsPerPage: response.data.partItemList.size,
+	            totalElements: response.data.partItemList.totalElements,
+	            currentPage: response.data.partItemList.pageable.pageNumber
+			}
+		})
       })
   }
   edit = (id) => {
-    console.log(`[MyCaseComponent.edit] id=${id}`)
-    this.props.history.push(`/my-case-detail/${id}`);
+    console.log(`[PartItemComponent.edit] id=${id}`)
+    this.props.history.push(`/part-item-detail/${id}`);
   }
   delete = (id) => {
-    console.log(`[MyCaseComponent.delete] id=${id}`)
-    MyCaseService.delete(id)
+    console.log(`[PartItemComponent.delete] id=${id}`)
+	PartItemService.delete(id)
       .then(response => {
-        console.log(`[MyCaseComponent.delete] response==>`, response)
+        console.log(`[PartItemComponent.delete] response==>`, response)
         this.retrieve();
       })
   }
 
   handleChangePage = (e, newPage) => {
     //this.state.paging.currentPage = newPage;
-    let paging = this.state.paging;
-    paging.currentPage = newPage
-    this.setState({
-      paging: paging
-    });
+	let paging = this.state.paging;
+	paging.currentPage = newPage
+	this.setState({
+		paging: paging
+	});
     this.retrieve();
   }
   handleChangeRowsPerPage = (e) => {
-    let paging = this.state.paging;
-    paging.rowsPerPage = e.target.value
-    paging.currentPage = 0;
-    this.setState({
-      paging: paging
-    });
+	let paging = this.state.paging;
+	paging.rowsPerPage = e.target.value
+	paging.currentPage = 0;
+	this.setState({
+		paging: paging
+	});
     this.retrieve();
   }
 
   render = () => {
     return (
       <div className="container">
-        <Typography variant="h4">MyCase List</Typography>
+        <Typography variant="h4">PartItem List</Typography>
         <Button variant="contained" color="primary" onClick={() => this.edit(-1)}>NEW</Button>
         <TablePagination
           component="div"
@@ -81,12 +81,9 @@ class MyCaseListComponent extends React.Component {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Title</TableCell>
-              <TableCell>Status</TableCell>
-              <TableCell>Case Type 1</TableCell>
-              <TableCell>Case Type 2</TableCell>
-              <TableCell>Case Type 3</TableCell>
-              <TableCell>Status Code</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Description</TableCell>
+              <TableCell>Serialized</TableCell>
 
               <TableCell>Action</TableCell>
             </TableRow>
@@ -94,12 +91,9 @@ class MyCaseListComponent extends React.Component {
           <TableBody>
             {this.state.list.map(row => (
               <TableRow key={row.id}>
-                <TableCell>{row.title}</TableCell>
-                <TableCell>{row.status.value}</TableCell>
-                <TableCell>{row.caseType1.value}</TableCell>
-                <TableCell>{row.caseType2.value}</TableCell>
-                <TableCell>{row.caseType3.value}</TableCell>
-                <TableCell>{row.statusCode.value}</TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.description}</TableCell>
+                <TableCell>{row.serialized}</TableCell>
 
                 <TableCell align="right">
                   <Button variant="contained" color="primary" onClick={() => this.edit(row.id)}>Edit</Button>&nbsp;
@@ -121,6 +115,6 @@ class MyCaseListComponent extends React.Component {
   }
 }
 
-export default MyCaseListComponent;
+export default PartItemListComponent;
 
 

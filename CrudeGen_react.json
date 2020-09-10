@@ -56,64 +56,61 @@
 	},
 	"OBJECTS": [
 		{
-			"NAME": "MyCase",
+			"NAME": "PartItem",
 			"FIELDS": [
 				{
-					"LABEL": "Title",
-					"NAME": "Title",
+					"LABEL": "Name",
+					"NAME": "Name",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
 				},
 				{
+					"LABEL": "Description",
+					"NAME": "Description",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Serialized",
+					"NAME": "Serialized",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				}
+			]
+		},
+		{
+			"NAME": "SerialItem",
+			"FIELDS": [
+				{
+					"LABEL": "Name",
+					"NAME": "Name",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Description",
+					"NAME": "Description",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Part Item",
+					"NAME": "PartItem",
+					"TYPE": "PartItem",
+					"MAPPING": "@ManyToOne",
+					"REQUIRED": "Y"
+				},
+				{
 					"LABEL": "Status",
 					"NAME": "Status",
-					"TYPE": "CodeGroups",
-					"MAPPING": "@ManyToOne",
-					"CODE_GROUP": "STATUS",
-					"LIST_TYPE": "STATUS",
-					"REQUIRED": "Y"
-				},
-				{
-					"LABEL": "Case Type 1",
-					"NAME": "CaseType1",
-					"TYPE": "CodeGroups",
-					"MAPPING": "@ManyToOne",
-					"CODE_GROUP": "CASE_TYPE_1",
-					"LIST_TYPE": "CASE_TYPE_1",
-					"REQUIRED": "Y"
-				},
-				{
-					"LABEL": "Case Type 2",
-					"NAME": "CaseType2",
-					"TYPE": "CodeGroups",
-					"MAPPING": "@ManyToOne",
-					"CODE_GROUP": "CASE_TYPE_2",
-					"LIST_TYPE": "CASE_TYPE_2",
-					"REQUIRED": "Y"
-				},
-				{
-					"LABEL": "Case Type 3",
-					"NAME": "CaseType3",
-					"TYPE": "CodeGroups",
-					"MAPPING": "@ManyToOne",
-					"CODE_GROUP": "CASE_TYPE_3",
-					"LIST_TYPE": "CASE_TYPE_3",
-					"REQUIRED": "Y"
-				},
-				{
-					"LABEL": "Status Code",
-					"NAME": "StatusCode",
-					"TYPE": "CodeGroups",
-					"MAPPING": "@ManyToOne",
-					"CODE_GROUP": "STATUS_CODE",
-					"LIST_TYPE": "STATUS_CODE"
-				},
-				{
-					"LABEL": "Comments",
-					"NAME": "Comments",
 					"TYPE": "String",
-					"MAPPING": ""
+					"MAPPING": "",
+					"REQUIRED": "Y"
 				}
 			]
 		}

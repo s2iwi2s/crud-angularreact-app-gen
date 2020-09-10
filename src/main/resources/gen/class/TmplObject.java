@@ -14,11 +14,13 @@ import javax.persistence.Table;
 import java.util.Date;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.myapp.crud.appgen.codeGroups.CodeGroups;
 
 import lombok.Getter;
 import lombok.Setter;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 @Getter
 @Setter
 @Entity

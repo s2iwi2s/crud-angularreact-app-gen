@@ -2,9 +2,9 @@ import React from 'react';
 
 import Typography from '@material-ui/core/Typography';
 import { Table, TableHead, TableRow, TableCell, Button, TableBody, TablePagination } from '@material-ui/core';
-import MyCaseService from '../../api/myCase/MyCaseService';
+import SerialItemService from '../../api/serialItem/SerialItemService';
 
-class MyCaseListComponent extends React.Component {
+class SerialItemListComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -20,28 +20,28 @@ class MyCaseListComponent extends React.Component {
     this.retrieve();
   }
   retrieve = () => {
-    MyCaseService.getList(this.state.paging.currentPage, this.state.paging.rowsPerPage)
+    SerialItemService.getList(this.state.paging.currentPage, this.state.paging.rowsPerPage)
       .then(response => {
         console.log(response)
         this.setState({
-          list: response.data.myCaseList.content,
+          list: response.data.serialItemList.content,
           paging: {
-            rowsPerPage: response.data.myCaseList.size,
-            totalElements: response.data.myCaseList.totalElements,
-            currentPage: response.data.myCaseList.pageable.pageNumber
+            rowsPerPage: response.data.serialItemList.size,
+            totalElements: response.data.serialItemList.totalElements,
+            currentPage: response.data.serialItemList.pageable.pageNumber
           }
         })
       })
   }
   edit = (id) => {
-    console.log(`[MyCaseComponent.edit] id=${id}`)
-    this.props.history.push(`/my-case-detail/${id}`);
+    console.log(`[SerialItemComponent.edit] id=${id}`)
+    this.props.history.push(`/serial-item-detail/${id}`);
   }
   delete = (id) => {
-    console.log(`[MyCaseComponent.delete] id=${id}`)
-    MyCaseService.delete(id)
+    console.log(`[SerialItemComponent.delete] id=${id}`)
+    SerialItemService.delete(id)
       .then(response => {
-        console.log(`[MyCaseComponent.delete] response==>`, response)
+        console.log(`[SerialItemComponent.delete] response==>`, response)
         this.retrieve();
       })
   }
@@ -68,7 +68,7 @@ class MyCaseListComponent extends React.Component {
   render = () => {
     return (
       <div className="container">
-        <Typography variant="h4">MyCase List</Typography>
+        <Typography variant="h4">SerialItem List</Typography>
         <Button variant="contained" color="primary" onClick={() => this.edit(-1)}>NEW</Button>
         <TablePagination
           component="div"
@@ -81,12 +81,10 @@ class MyCaseListComponent extends React.Component {
         <Table>
           <TableHead>
             <TableRow>
-              <TableCell>Title</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Description</TableCell>
+              <TableCell>Part Item</TableCell>
               <TableCell>Status</TableCell>
-              <TableCell>Case Type 1</TableCell>
-              <TableCell>Case Type 2</TableCell>
-              <TableCell>Case Type 3</TableCell>
-              <TableCell>Status Code</TableCell>
 
               <TableCell>Action</TableCell>
             </TableRow>
@@ -94,12 +92,10 @@ class MyCaseListComponent extends React.Component {
           <TableBody>
             {this.state.list.map(row => (
               <TableRow key={row.id}>
-                <TableCell>{row.title}</TableCell>
-                <TableCell>{row.status.value}</TableCell>
-                <TableCell>{row.caseType1.value}</TableCell>
-                <TableCell>{row.caseType2.value}</TableCell>
-                <TableCell>{row.caseType3.value}</TableCell>
-                <TableCell>{row.statusCode.value}</TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.description}</TableCell>
+                <TableCell>{row.partItem.name}</TableCell>
+                <TableCell>{row.status}</TableCell>
 
                 <TableCell align="right">
                   <Button variant="contained" color="primary" onClick={() => this.edit(row.id)}>Edit</Button>&nbsp;
@@ -121,6 +117,6 @@ class MyCaseListComponent extends React.Component {
   }
 }
 
-export default MyCaseListComponent;
+export default SerialItemListComponent;
 
 

@@ -7,6 +7,10 @@ import HomeListComponent from './forms/home/HomeListComponent'
 import HomeDetailComponent from './forms/home/HomeDetailComponent'
 import MyCaseListComponent from './forms/myCase/MyCaseListComponent';
 import MyCaseDetailComponent from './forms/myCase/MyCaseDetailComponent';
+import PartItemListComponent from './forms/partItem/PartItemListComponent';
+import PartItemDetailComponent from './forms/partItem/PartItemDetailComponent';
+import SerialItemListComponent from './forms/serialItem/SerialItemListComponent';
+import SerialItemDetailComponent from './forms/serialItem/SerialItemDetailComponent';
 
 class AppRouting extends React.Component {
  render = () => {
@@ -21,6 +25,10 @@ class AppRouting extends React.Component {
        <Route path="/home-detail/:id" exact component={HomeDetailComponent} />
        <Route path="/my-case-list" exact component={MyCaseListComponent} />
        <Route path="/my-case-detail/:id" exact component={MyCaseDetailComponent} />
+       <Route path="/part-item-list" exact component={PartItemListComponent} />
+       <Route path="/part-item-detail/:id" exact component={PartItemDetailComponent} />
+       <Route path="/serial-item-list" exact component={SerialItemListComponent} />
+       <Route path="/serial-item-detail/:id" exact component={SerialItemDetailComponent} />
 
        <Route component={ErrorComponent} />
       </Switch>
