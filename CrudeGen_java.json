@@ -1,0 +1,161 @@
+{
+	"TMPLS": [
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplObject.java",
+			"OUTPUT": "src/main/java/com/myapp/crud/appgen/XYclassYX/XYCLASSYX.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYfields-tmplYX",
+					"TMPL_FILE": "src/main/resources/gen/class/TmplObjectGlobalVariable.java"
+				},
+				{
+					"TMPL_KEY": "XYgetter-setter-tmplYX",
+					"TMPL_FILE": "src/main/resources/gen/class/TmplObjectGetterSetter.java"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/react/TmplListComponent.jsx",
+			"OUTPUT": "react/src/forms/XYclassYX/XYCLASSYXListComponent.jsx",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYlist-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/react/TmplListComponent.list-fields.jsx",
+					"TMPL_FILE_LIST": "src/main/resources/gen/react/TmplListComponent.list-fields.value.jsx"
+					
+				},
+				{
+					"TMPL_KEY": "XYlist-headersYX",
+					"TMPL_FILE": "src/main/resources/gen/react/TmplListComponent.headers.jsx"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplListService.java",
+			"OUTPUT": "src/main/java/com/myapp/crud/appgen/XYclassYX/XYCLASSYXListService.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYtmpllistservice-varYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/class/TmplListService.var.java"
+				},
+				{
+					"TMPL_KEY": "XYtmpllistservice-initYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/class/TmplListService.init.java"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplController.java",
+			"OUTPUT": "src/main/java/com/myapp/crud/appgen/XYclassYX/XYCLASSYXController.java"
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplService.java",
+			"OUTPUT": "src/main/java/com/myapp/crud/appgen/XYclassYX/XYCLASSYXService.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYdao-service-tmplYX",
+					"TMPL_FILE": "src/main/resources/gen/class/TmplServiceMethods.java"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplDAO.java",
+			"OUTPUT": "src/main/java/com/myapp/crud/appgen/XYclassYX/XYCLASSYXDAO.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYdao-methodsYX",
+					"TMPL_FILE": "src/main/resources/gen/class/TmplDaoMethods.java"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplResponse.java",
+			"OUTPUT": "src/main/java/com/myapp/crud/appgen/XYclassYX/XYCLASSYXResponse.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYresponse-fieldYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/class/TmplResponseField.java"
+				}
+			]
+		}
+	],
+	"FIELD_MAP": {
+		"CLASS_NAME": "XYCLASSYX",
+		"CLASS_NAME_VAR": "XYclassYX",
+		"CLASS_NAME_KEBAB": "XYclass-kebabYX",
+		"FIELD_NAME": "XYfield-name-tmplYX",
+		"FIELD_NAME_VAR": "XYfield-var-tmplYX",
+		"FIELD_NAME_KEBAB": "XYfield-var-kebab-tmplYX",
+		"FIELD_LABEL": "XYfield-label-tmplYX",
+		"FIELD_TYPE": "XYfield-type-tmplYX",
+		"FIELD_LIST_TYPE": "XYcode-groupYX",
+		"FIELD_MAPPING": "XYfield-mapping-tmplYX"
+	},
+	"OBJECTS": [
+		{
+			"NAME": "MyCase",
+			"FIELDS": [
+				{
+					"LABEL": "Title",
+					"NAME": "Title",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Status",
+					"NAME": "Status",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "STATUS",
+					"LIST_TYPE": "STATUS",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 1",
+					"NAME": "CaseType1",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "CASE_TYPE_1",
+					"LIST_TYPE": "CASE_TYPE_1",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 2",
+					"NAME": "CaseType2",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "CASE_TYPE_2",
+					"LIST_TYPE": "CASE_TYPE_2",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 3",
+					"NAME": "CaseType3",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "CASE_TYPE_3",
+					"LIST_TYPE": "CASE_TYPE_3",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Status Code",
+					"NAME": "StatusCode",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "STATUS_CODE",
+					"LIST_TYPE": "STATUS_CODE"
+				},
+				{
+					"LABEL": "Comments",
+					"NAME": "Comments",
+					"TYPE": "String",
+					"MAPPING": ""
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,13 @@
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+
+@import 'https://fonts.googleapis.com/icon?family=Material+Icons';
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif;
+}
+
+mat-card {
+  height: 100vh;
+}

@@ -1,0 +1,39 @@
+<h2>MyCases List</h2>
+
+<mat-paginator [pageSizeOptions]="[10, 25, 50]" #matPaginator1></mat-paginator>
+<mat-table [dataSource]="dataSource">
+	<mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+	<mat-row *matRowDef="let myRowData; columns: tableColumns"></mat-row>
+	
+	<ng-container  matColumnDef="title">
+		<mat-header-cell *matHeaderCellDef>Title</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.title}}</mat-cell>
+	</ng-container>
+	<ng-container  matColumnDef="caseType1">
+		<mat-header-cell *matHeaderCellDef>Case Type 1</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.caseType1}}</mat-cell>
+	</ng-container>
+	<ng-container  matColumnDef="caseType2">
+		<mat-header-cell *matHeaderCellDef>Case Type 2</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.caseType2}}</mat-cell>
+	</ng-container>
+	<ng-container  matColumnDef="caseType3">
+		<mat-header-cell *matHeaderCellDef>Case Type 3</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.caseType3}}</mat-cell>
+	</ng-container>
+	<ng-container  matColumnDef="status">
+		<mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.status}}</mat-cell>
+	</ng-container>
+	<ng-container  matColumnDef="statusCode">
+		<mat-header-cell *matHeaderCellDef>Status Code</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.statusCode}}</mat-cell>
+	</ng-container>
+	<ng-container  matColumnDef="id">
+		<mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">
+			<a mat-button [routerLink]="['/mycases-detail', myRowData.id]">Edit</a>
+			<a mat-button (click)="remove(myRowData.id)">Delete</a>
+		</mat-cell>
+	</ng-container>
+</mat-table>

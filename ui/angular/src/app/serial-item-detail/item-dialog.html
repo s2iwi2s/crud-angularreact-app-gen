@@ -1,0 +1,42 @@
+<div mat-dialog-content style="width: 600px;height: 300px;">
+
+  <h4>Part Item search</h4>
+
+  <form [formGroup]="partItemForm">
+    <mat-grid-list cols="5">
+      <mat-grid-tile [colspan]="4">
+        <input id="partItemSearch" type="text" formControlName="partItemSearch" class="form-control"
+          placeholder="Search Part Item" />
+      </mat-grid-tile>
+      <mat-grid-tile aria-colspan="1"><a mat-raised-button (click)="searchPartItem()">
+          <mat-icon matSuffix>search</mat-icon>
+        </a></mat-grid-tile>
+    </mat-grid-list>
+
+    <mat-table [dataSource]="partItemSearchDS">
+      <mat-header-row *matHeaderRowDef="partItemSearchTC"></mat-header-row>
+      <mat-row *matRowDef="let myRowData; columns: partItemSearchTC"></mat-row>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData" (click)="setPartItem(myRowData.id, myRowData.name)">
+          {{myRowData.name}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData" (click)="setPartItem(myRowData.id, myRowData.name)">
+          {{myRowData.description}}
+        </mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="serialized">
+        <mat-header-cell *matHeaderCellDef>Serialized</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData" (click)="setPartItem(myRowData.id, myRowData.name)">
+          {{myRowData.serialized}}
+        </mat-cell>
+      </ng-container>
+    </mat-table>
+  </form>
+</div>
+<a mat-raised-button (click)="closeDialog()">
+  Close
+</a>

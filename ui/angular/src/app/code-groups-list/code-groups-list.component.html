@@ -1,0 +1,74 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>CodeGroups List</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-actions>
+    <div class="row">
+      <div class="col-6">
+        <a mat-raised-button [routerLink]="['/code-groups-add']" color="primary"
+          >New</a
+        >
+      </div>
+      <div class="col-2 text-right">
+        <input placeholder="Search" />
+      </div>
+      <div class="col-3 text-left">
+        <mat-paginator
+          [pageSizeOptions]="[10, 25, 50]"
+          #matPaginator1
+        ></mat-paginator>
+      </div>
+    </div>
+  </mat-card-actions>
+  <mat-card-content>
+    <mat-table [dataSource]="dataSource" matSort>
+      <mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+      <mat-row *matRowDef="let myRowData; columns: tableColumns"></mat-row>
+      <!--
+	<ng-container  matColumnDef="status">
+		<mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.status? myRowData.status.description:''}}</mat-cell>
+	</ng-container>
+	-->
+      <ng-container matColumnDef="code">
+        <mat-header-cell *matHeaderCellDef>Code</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData">{{ myRowData.code }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="value">
+        <mat-header-cell *matHeaderCellDef>Value</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData">{{ myRowData.value }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="description">
+        <mat-header-cell *matHeaderCellDef>Description</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData">{{
+          myRowData.description
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="bool">
+        <mat-header-cell *matHeaderCellDef>Bool</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData">{{ myRowData.bool }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="num">
+        <mat-header-cell *matHeaderCellDef>Num</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData">{{ myRowData.num }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+        <mat-cell *matCellDef="let myRowData">
+          <a mat-button [routerLink]="['/code-groups-detail', myRowData.id]"
+            >Edit</a
+          >
+          <a mat-button (click)="remove(myRowData.id)">Delete</a>
+        </mat-cell>
+      </ng-container>
+    </mat-table>
+  </mat-card-content>
+  <mat-card-actions>
+    <a mat-raised-button [routerLink]="['/code-groups-add']" color="primary"
+      >New</a
+    >
+  </mat-card-actions>
+</mat-card>

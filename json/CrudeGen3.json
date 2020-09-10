@@ -1,0 +1,274 @@
+{
+	"TMPLS": [
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-detail.component.html",
+			"OUTPUT": "client/src/app/XYclass-kebabYX-detail/XYclass-kebabYX-detail.component.html",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYdetail-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/Tmpl-detail.component-fields.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/angular/Tmpl-detail.component-fields.list.html"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-detail.component.ts",
+			"OUTPUT": "client/src/app/XYclass-kebabYX-detail/XYclass-kebabYX-detail.component.ts",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYdetail-init-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/angular/Tmpl-detail.component.init-fields.ts"
+				}, 
+				{
+					"TMPL_KEY": "XYdetail-set-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/angular/Tmpl-detail.component.set-fields.ts"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-detail.component.css",
+			"OUTPUT": "client/src/app/XYclass-kebabYX-detail/XYclass-kebabYX-detail.component.css"
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-list.component.html",
+			"OUTPUT": "client/src/app/XYclass-kebabYX-list/XYclass-kebabYX-list.component.html",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYlist-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/Tmpl-list.component-headers.html"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-list.component.ts",
+			"OUTPUT": "client/src/app/XYclass-kebabYX-list/XYclass-kebabYX-list.component.ts",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYlist-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/Tmpl-list.component-header.ts"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-list.component.css",
+			"OUTPUT": "client/src/app/XYclass-kebabYX-list/XYclass-kebabYX-list.component.css"
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl.service.ts",
+			"OUTPUT": "client/src/app/shared/XYclass-kebabYX/XYclass-kebabYX.service.ts"
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplObject.java",
+			"OUTPUT": "src/main/java/com/spring/angular/proj5/XYclassYX/XYCLASSYX.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYfields-tmplYX",
+					"TMPL_FILE": "src/main/resources/gen/class/TmplObjectGlobalVariable.java"
+				},
+				{
+					"TMPL_KEY": "XYgetter-setter-tmplYX",
+					"TMPL_FILE": "src/main/resources/gen/class/TmplObjectGetterSetter.java"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplController.java",
+			"OUTPUT": "src/main/java/com/spring/angular/proj5/XYclassYX/XYCLASSYXController.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYcode-groupYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/class/TmplControllerCodeGroups.java"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplService.java",
+			"OUTPUT": "src/main/java/com/spring/angular/proj5/XYclassYX/XYCLASSYXService.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYdao-service-tmplYX",
+					"TMPL_FILE": "src/main/resources/gen/class/TmplServiceMethods.java"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplDAO.java",
+			"OUTPUT": "src/main/java/com/spring/angular/proj5/XYclassYX/XYCLASSYXDAO.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYdao-methodsYX",
+					"TMPL_FILE": "src/main/resources/gen/class/TmplDaoMethods.java"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/class/TmplResponse.java",
+			"OUTPUT": "src/main/java/com/spring/angular/proj5/XYclassYX/XYCLASSYXResponse.java",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYresponse-fieldYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/class/TmplResponseField.java"
+				}
+			]
+		}
+	],
+	"FIELD_MAP": {
+		"CLASS_NAME": "XYCLASSYX",
+		"CLASS_NAME_VAR": "XYclassYX",
+		"CLASS_NAME_KEBAB": "XYclass-kebabYX",
+		"FIELD_NAME": "XYfield-name-tmplYX",
+		"FIELD_NAME_VAR": "XYfield-var-tmplYX",
+		"FIELD_NAME_KEBAB": "XYfield-var-kebab-tmplYX",
+		"FIELD_LABEL": "XYfield-label-tmplYX",
+		"FIELD_TYPE": "XYfield-type-tmplYX",
+		"FIELD_LIST_TYPE": "XYcode-groupYX",
+		"FIELD_MAPPING": "XYfield-mapping-tmplYX"
+		
+	},
+	"OBJECTS": [
+		{
+			"NAME": "CodeGroups",
+			"FIELDS": [
+				{
+					"LABEL": "Code",
+					"NAME": "Code",
+					"TYPE": "String",
+					"LIST_TYPE": "Code",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Value",
+					"NAME": "Value",
+					"TYPE": "String"
+				},
+				{
+					"LABEL": "Description",
+					"NAME": "Description",
+					"TYPE": "String"
+				},
+				{
+					"LABEL": "Bool",
+					"NAME": "Bool",
+					"TYPE": "String"
+				},
+				{
+					"LABEL": "Num",
+					"NAME": "Num",
+					"TYPE": "String"
+				}
+			]
+		},
+		{
+			"NAME": "PartItem",
+			"FIELDS": [
+				{
+					"LABEL": "Name",
+					"NAME": "Name",
+					"TYPE": "String",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Description",
+					"NAME": "Description",
+					"TYPE": "String",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Serialized",
+					"NAME": "Serialized",
+					"TYPE": "String",
+					"REQUIRED": "Y"
+				}
+			]
+		},
+		{
+			"NAME": "SerialItem",
+			"FIELDS": [
+				{
+					"LABEL": "Name",
+					"NAME": "Name",
+					"TYPE": "String",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Description",
+					"NAME": "Description",
+					"TYPE": "String",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Part Item Id",
+					"NAME": "PartItemId",
+					"TYPE": "String",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Status",
+					"NAME": "Status",
+					"TYPE": "String",
+					"REQUIRED": "Y"
+				}
+			]
+		},
+		{
+			"NAME": "MyCases",
+			"FIELDS": [
+				{
+					"LABEL": "Title",
+					"NAME": "Title",
+					"TYPE": "String",
+					"MAPPING": "@ManyToOne",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Status",
+					"NAME": "Status",
+					"TYPE": "CodeGroups",
+					"CODE_GROUP": "STATUS",
+					"LIST_TYPE": "STATUS",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 1",
+					"NAME": "CaseType1",
+					"TYPE": "CodeGroups",
+					"CODE_GROUP": "CASE_TYPE_1",
+					"LIST_TYPE": "CASE_TYPE_1",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 2",
+					"NAME": "CaseType2",
+					"TYPE": "CodeGroups",
+					"CODE_GROUP": "CASE_TYPE_2",
+					"LIST_TYPE": "CASE_TYPE_2",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 3",
+					"NAME": "CaseType3",
+					"TYPE": "CodeGroups",
+					"CODE_GROUP": "CASE_TYPE_3",
+					"LIST_TYPE": "CASE_TYPE_3",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Status Code",
+					"NAME": "StatusCode",
+					"TYPE": "CodeGroups",
+					"CODE_GROUP": "STATUS_CODE",
+					"LIST_TYPE": "STATUS_CODE"
+				},
+				{
+					"LABEL": "Comments",
+					"NAME": "Comments",
+					"TYPE": "String"
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,1 @@
+	public List<XYCLASSYX> findByXYfield-name-tmplYX(String XYfield-var-tmplYX);

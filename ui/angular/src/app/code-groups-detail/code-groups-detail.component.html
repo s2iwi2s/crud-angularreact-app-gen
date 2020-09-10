@@ -1,0 +1,172 @@
+<mat-card>
+  <form #CodeGroupsForm="ngForm" (ngSubmit)="save(CodeGroupsForm.value)">
+    <mat-card-header>
+      <mat-card-title>
+        <h2>{{ details.id ? 'Edit' : 'Add' }} CodeGroups</h2>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!CodeGroupsForm.form.valid"
+      >
+        Save
+      </button>
+      <a
+        mat-raised-button
+        [routerLink]="['/code-groups-add']"
+        *ngIf="details.id"
+        >New</a
+      >
+      <button
+        mat-raised-button
+        color="secondary"
+        (click)="remove(details.id)"
+        *ngIf="details.id"
+        type="button"
+      >
+        Delete
+      </button>
+      <a mat-raised-button routerLink="/code-groups-list">Cancel</a>
+    </mat-card-actions>
+
+    <input type="hidden" name="id" [(ngModel)]="details.id" />
+    <!--
+	<mat-card-content> <mat-form-field>
+	<mat-select [(ngModel)]="details.caseType2" name="caseType2"
+		placeholder="Case Type 2" required> <mat-option
+		*ngFor="let listItem of caseType2List"
+		[value]="listItem.value"> {{ listItem.description
+	}} </mat-option> </mat-select> </mat-form-field> </mat-card-content>
+	-->
+    <!--
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Code</mat-label>
+			<input [(ngModel)]="details.code" type="text" name="value" matInput placeholder="Code" [formControl]="myControl" [matAutocomplete]="codeAuto" #code>
+			<mat-autocomplete #codeAuto="matAutocomplete">
+				<mat-option *ngFor="let option of filteredOptions | async" [value]="option" > {{ option }} </mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+	</mat-card-content>
+  -->
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Code</mat-label>
+        <input
+          [(ngModel)]="details.code"
+          type="text"
+          name="code"
+          matInput
+          placeholder="Code"
+          [matAutocomplete]="codeAuto"
+          #code
+        />
+        <mat-autocomplete #codeAuto="matAutocomplete">
+          <mat-option
+            *ngFor="let option of filteredOptions | async"
+            [value]="option"
+          >
+            {{ option }}
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </mat-card-content>
+    <!--
+
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Code</mat-label>
+        <mat-select
+          [(ngModel)]="details.code"
+          name="code"
+          placeholder="Code"
+          required
+          #code
+        >
+          <mat-option *ngFor="let listItem of codeList" [value]="listItem">
+            {{ listItem }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </mat-card-content>
+  -->
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Value</mat-label>
+        <input
+          [(ngModel)]="details.value"
+          name="value"
+          matInput
+          placeholder="Value"
+          #value
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input
+          [(ngModel)]="details.description"
+          name="description"
+          matInput
+          placeholder="Description"
+          #description
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Bool</mat-label>
+        <input
+          [(ngModel)]="details.bool"
+          name="bool"
+          matInput
+          placeholder="Bool"
+          #bool
+        />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Num</mat-label>
+        <input
+          [(ngModel)]="details.num"
+          name="num"
+          matInput
+          placeholder="Num"
+          #num
+        />
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="!CodeGroupsForm.form.valid"
+      >
+        Save
+      </button>
+      <a
+        mat-raised-button
+        [routerLink]="['/code-groups-add']"
+        *ngIf="details.id"
+        >New</a
+      >
+      <button
+        mat-raised-button
+        color="secondary"
+        (click)="remove(details.id)"
+        *ngIf="details.id"
+        type="button"
+      >
+        Delete
+      </button>
+      <a mat-raised-button routerLink="/code-groups-list">Cancel</a>
+    </mat-card-actions>
+  </form>
+</mat-card>

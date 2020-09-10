@@ -1,0 +1,59 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>{{ details.id ? 'Edit' : 'Add' }} SerialItem</h2>
+    </mat-card-title>
+  </mat-card-header>
+  <form #SerialItemForm="ngForm" (ngSubmit)="save(SerialItemForm.value)">
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!SerialItemForm.form.valid">
+        Save
+      </button>
+      <a mat-raised-button [routerLink]="['/serial-item-add']" *ngIf="details.id">New</a>
+      <button mat-raised-button color="secondary" (click)="remove(details.id)" *ngIf="details.id" type="button">
+        Delete
+      </button>
+      <a mat-raised-button routerLink="/serial-item-list">Cancel</a>
+    </mat-card-actions>
+    <input type="hidden" name="id" [(ngModel)]="details.id" />
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Name</mat-label>
+        <input [(ngModel)]="details.name" name="name" matInput placeholder="Name" required #name />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input [(ngModel)]="details.description" name="description" matInput placeholder="Description" required
+          #description />
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Part Item</mat-label>
+        {{ details.partItem.name }}
+        &nbsp;
+        <input ngModelGroup="partItem" [(ngModel)]="details.partItem.id" name="id" matInput hidden #partItem />
+        <mat-icon matSuffix (click)="showPartItemDialog()">search</mat-icon>
+      </mat-form-field>
+    </mat-card-content>
+    <mat-card-content>
+      <mat-form-field>
+        <mat-label>Status</mat-label>
+        <input [(ngModel)]="details.status" name="status" matInput placeholder="Status" required #status />
+      </mat-form-field>
+    </mat-card-content>
+
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit" [disabled]="!SerialItemForm.form.valid">
+        Save
+      </button>
+      <a mat-raised-button [routerLink]="['/serial-item-add']" *ngIf="details.id">New</a>
+      <button mat-raised-button color="secondary" (click)="remove(details.id)" *ngIf="details.id" type="button">
+        Delete
+      </button>
+      <a mat-raised-button routerLink="/serial-item-list">Cancel</a>
+    </mat-card-actions>
+  </form>
+</mat-card>

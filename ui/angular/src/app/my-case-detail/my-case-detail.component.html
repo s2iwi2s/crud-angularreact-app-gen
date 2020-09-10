@@ -1,0 +1,100 @@
+<mat-card>
+<form #MyCaseForm="ngForm" (ngSubmit)="save(MyCaseForm.value)">
+	<mat-card-header> <mat-card-title>
+	<h2>{{details.id ? 'Edit' : 'Add'}} MyCase</h2>
+	</mat-card-title> </mat-card-header>
+	<mat-card-actions>
+		<button mat-raised-button color="primary" type="submit"
+			[disabled]="!MyCaseForm.form.valid">Save</button>
+		<a mat-raised-button [routerLink]="['/my-case-add']" *ngIf="details.id">New</a>
+		<button mat-raised-button color="secondary"
+			(click)="remove(details.id)" *ngIf="details.id" type="button">Delete</button>
+		<a mat-raised-button routerLink="/my-case-list">Cancel</a>
+	</mat-card-actions>
+
+	<input type="hidden" name="id" [(ngModel)]="details.id">
+	<!--
+	<mat-card-content> <mat-form-field>
+	<mat-select [(ngModel)]="details.caseType2" name="caseType2"
+		placeholder="Case Type 2" required> <mat-option
+		*ngFor="let listItem of caseType2List"
+		[value]="listItem.value"> {{ listItem.description
+	}} </mat-option> </mat-select> </mat-form-field> </mat-card-content>
+	-->
+	<!--
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Code</mat-label>
+			<input [(ngModel)]="details.code" type="text" name="value" matInput placeholder="Code" [formControl]="myControl" [matAutocomplete]="codeAuto" #code>
+			<mat-autocomplete #codeAuto="matAutocomplete">
+				<mat-option *ngFor="let option of filteredOptions | async" [value]="option" > {{ option }} </mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+	</mat-card-content>
+	-->
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Title</mat-label>
+			<input [(ngModel)]="details.title" name="title" matInput placeholder="Title" required #title> 
+		</mat-form-field> 
+	</mat-card-content>
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Status</mat-label>
+			<mat-select [(ngModel)]="details.status.id" ngModelGroup="status" name="id" placeholder="Status" required #status>
+				<mat-option *ngFor="let listItem of listService.statusList" [value]="listItem.id" > {{ listItem.description }} </mat-option>
+			</mat-select>
+		</mat-form-field>
+	</mat-card-content>
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Case Type 1</mat-label>
+			<mat-select [(ngModel)]="details.caseType1.id" ngModelGroup="caseType1" name="id" placeholder="Case Type 1" required #caseType1>
+				<mat-option *ngFor="let listItem of listService.caseType1List" [value]="listItem.id" > {{ listItem.description }} </mat-option>
+			</mat-select>
+		</mat-form-field>
+	</mat-card-content>
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Case Type 2</mat-label>
+			<mat-select [(ngModel)]="details.caseType2.id" ngModelGroup="caseType2" name="id" placeholder="Case Type 2" required #caseType2>
+				<mat-option *ngFor="let listItem of listService.caseType2List" [value]="listItem.id" > {{ listItem.description }} </mat-option>
+			</mat-select>
+		</mat-form-field>
+	</mat-card-content>
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Case Type 3</mat-label>
+			<mat-select [(ngModel)]="details.caseType3.id" ngModelGroup="caseType3" name="id" placeholder="Case Type 3" required #caseType3>
+				<mat-option *ngFor="let listItem of listService.caseType3List" [value]="listItem.id" > {{ listItem.description }} </mat-option>
+			</mat-select>
+		</mat-form-field>
+	</mat-card-content>
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Status Code</mat-label>
+			<mat-select [(ngModel)]="details.statusCode.id" ngModelGroup="statusCode" name="id" placeholder="Status Code"  #statusCode>
+				<mat-option *ngFor="let listItem of listService.statusCodeList" [value]="listItem.id" > {{ listItem.description }} </mat-option>
+			</mat-select>
+		</mat-form-field>
+	</mat-card-content>
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Comments</mat-label>
+			<input [(ngModel)]="details.comments" name="comments" matInput placeholder="Comments"  #comments> 
+		</mat-form-field> 
+	</mat-card-content>
+
+
+	<mat-card-actions>
+		<button mat-raised-button color="primary" type="submit"
+			[disabled]="!MyCaseForm.form.valid">Save</button>
+		<a mat-raised-button [routerLink]="['/my-case-add']" *ngIf="details.id">New</a>
+		<button mat-raised-button color="secondary"
+			(click)="remove(details.id)" *ngIf="details.id" type="button">Delete</button>
+		<a mat-raised-button routerLink="/my-case-list">Cancel</a>
+	</mat-card-actions>
+</form>
+</mat-card>
+
+

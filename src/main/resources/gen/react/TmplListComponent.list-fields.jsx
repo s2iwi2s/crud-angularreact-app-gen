@@ -1,0 +1,1 @@
+                <TableCell>{row.XYfield-var-tmplYX}</TableCell>

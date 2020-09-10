@@ -1,0 +1,140 @@
+{
+	"TMPLS": [
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-detail.component.html",
+			"OUTPUT": "angular/src/app/XYclass-kebabYX-detail/XYclass-kebabYX-detail.component.html",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYdetail-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/Tmpl-detail.component-fields.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/angular/Tmpl-detail.component-fields.list.html"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-detail.component.ts",
+			"OUTPUT": "angular/src/app/XYclass-kebabYX-detail/XYclass-kebabYX-detail.component.ts",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYdetail-init-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/angular/Tmpl-detail.component.init-fields.ts"
+				}, 
+				{
+					"TMPL_KEY": "XYdetail-set-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/blank.html",
+					"TMPL_FILE_LIST": "src/main/resources/gen/angular/Tmpl-detail.component.set-fields.ts"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-detail.component.css",
+			"OUTPUT": "angular/src/app/XYclass-kebabYX-detail/XYclass-kebabYX-detail.component.css"
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-list.component.html",
+			"OUTPUT": "angular/src/app/XYclass-kebabYX-list/XYclass-kebabYX-list.component.html",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYlist-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/Tmpl-list.component-headers.html"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-list.component.ts",
+			"OUTPUT": "angular/src/app/XYclass-kebabYX-list/XYclass-kebabYX-list.component.ts",
+			"SUB_TMPL": [
+				{
+					"TMPL_KEY": "XYlist-fieldsYX",
+					"TMPL_FILE": "src/main/resources/gen/angular/Tmpl-list.component-header.ts"
+				}
+			]
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl-list.component.css",
+			"OUTPUT": "angular/src/app/XYclass-kebabYX-list/XYclass-kebabYX-list.component.css"
+		},
+		{
+			"TEMPLATE_FILE": "src/main/resources/gen/angular/Tmpl.service.ts",
+			"OUTPUT": "angular/src/app/shared/XYclass-kebabYX/XYclass-kebabYX.service.ts"
+		}
+	],
+	"FIELD_MAP": {
+		"CLASS_NAME": "XYCLASSYX",
+		"CLASS_NAME_VAR": "XYclassYX",
+		"CLASS_NAME_KEBAB": "XYclass-kebabYX",
+		"FIELD_NAME": "XYfield-name-tmplYX",
+		"FIELD_NAME_VAR": "XYfield-var-tmplYX",
+		"FIELD_NAME_KEBAB": "XYfield-var-kebab-tmplYX",
+		"FIELD_LABEL": "XYfield-label-tmplYX",
+		"FIELD_TYPE": "XYfield-type-tmplYX",
+		"FIELD_LIST_TYPE": "XYcode-groupYX",
+		"FIELD_MAPPING": "XYfield-mapping-tmplYX"
+		
+	},
+	"OBJECTS": [
+		{
+			"NAME": "MyCase",
+			"FIELDS": [
+				{
+					"LABEL": "Title",
+					"NAME": "Title",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Status",
+					"NAME": "Status",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "STATUS",
+					"LIST_TYPE": "STATUS",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 1",
+					"NAME": "CaseType1",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "CASE_TYPE_1",
+					"LIST_TYPE": "CASE_TYPE_1",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 2",
+					"NAME": "CaseType2",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "CASE_TYPE_2",
+					"LIST_TYPE": "CASE_TYPE_2",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Case Type 3",
+					"NAME": "CaseType3",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "CASE_TYPE_3",
+					"LIST_TYPE": "CASE_TYPE_3",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Status Code",
+					"NAME": "StatusCode",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "STATUS_CODE",
+					"LIST_TYPE": "STATUS_CODE"
+				},
+				{
+					"LABEL": "Comments",
+					"NAME": "Comments",
+					"TYPE": "String",
+					"MAPPING": ""
+				}
+			]
+		}
+	]
+}

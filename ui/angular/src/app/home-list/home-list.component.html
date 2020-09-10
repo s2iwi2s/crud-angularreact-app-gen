@@ -1,0 +1,42 @@
+<mat-card>
+<mat-card-header> <mat-card-title>
+	<h2>Home List</h2>
+	</mat-card-title> </mat-card-header>
+<mat-card-actions>
+<a mat-raised-button [routerLink]="['/home-add']" color="primary">New</a>
+<mat-paginator [pageSizeOptions]="[10, 25, 50]" #matPaginator1></mat-paginator>
+</mat-card-actions>
+<mat-card-content> 
+<mat-table [dataSource]="dataSource">
+	<mat-header-row *matHeaderRowDef="tableColumns"></mat-header-row>
+	<mat-row *matRowDef="let myRowData; columns: tableColumns"></mat-row>
+	<!--
+	<ng-container  matColumnDef="status">
+		<mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.status? myRowData.status.description:''}}</mat-cell>
+	</ng-container>
+	-->
+	<ng-container  matColumnDef="urlStr">
+		<mat-header-cell *matHeaderCellDef>Url</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">{{myRowData.urlStr}}</mat-cell>
+	</ng-container>
+	<ng-container  matColumnDef="name">
+		<mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData"><a mat-button href="{{myRowData.urlStr}}">{{myRowData.name}}</a></mat-cell>
+	</ng-container>
+	
+	<ng-container  matColumnDef="id">
+		<mat-header-cell *matHeaderCellDef>Action</mat-header-cell>
+		<mat-cell *matCellDef="let myRowData">
+			<a mat-button [routerLink]="['/home-detail', myRowData.id]">Edit</a>
+			<a mat-button (click)="remove(myRowData.id)">Delete</a>
+		</mat-cell>
+	</ng-container>
+</mat-table>
+</mat-card-content>
+<mat-card-actions>
+<a mat-raised-button [routerLink]="['/home-add']" color="primary">New</a>
+</mat-card-actions>
+</mat-card>
+
+

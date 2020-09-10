@@ -1,0 +1,41 @@
+<h2>MyCases List</h2>
+
+<ul class="pagination pagination-sm">
+<li class="page-item"><a mat-button (click)="gotoPage(0)">First</a></li>
+<li class="page-item"></li>
+<li class="page-item"><a mat-button (click)="gotoPage(totalPages-1)">Last</a></li>
+</ul>
+
+
+<div class="table-responsive">
+		<table class="table table-striped table-sm">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Title</th>
+					<th>Case Type 1</th>
+					<th>Case Type 2</th>
+					<th>Case Type 3</th>
+					<th>Status</th>
+					<th>Status Code</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let mycase of mycasesList">
+					<td><a mat-button [routerLink]="['/mycases-detail', mycase.id]">{{mycase.id}}</a></td>
+					<td>{{mycase.title}}</td><!-- Title - myCasesList.title -->
+					<td>{{mycase.caseType1}}</td><!-- Case Type 1 - myCasesList.caseType1 -->
+					<td>{{mycase.caseType2}}</td><!-- Case Type 2 - myCasesList.caseType2 -->
+					<td>{{mycase.caseType3}}</td><!-- Case Type 3 - myCasesList.caseType3 -->
+					<td>{{mycase.status}}</td><!-- Status - myCasesList.status -->
+					<td>{{mycase.statusCode}}</td>
+					<td>
+						<a mat-button [routerLink]="['/mycases-detail', mycase.id]"><i class="icon-edit"></i> Edit</a>
+						<a mat-button (click)="remove(mycase.id)"><i class="icon-delete"></i> Delete</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+</div>

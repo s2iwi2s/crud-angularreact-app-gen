@@ -1,0 +1,36 @@
+<h2>MyCases List</h2>
+
+<button mat-fab color="primary" [routerLink]="['/mycases-add']">Add</button>
+<div class="table-responsive">
+		<table class="table table-striped table-sm">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Title</th>
+					<th>Case Type 1</th>
+					<th>Case Type 2</th>
+					<th>Case Type 3</th>
+					<th>Status</th>
+					<th>Comments</th>
+
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let mycase of mycasesList">
+					<td><a mat-button [routerLink]="['/mycases-edit', mycases.id]">{{mycases.id}}</a></td>
+					<td>{{mycase.title}}</td><!-- Title - myCasesList.title -->
+					<td>{{mycase.caseType1}}</td><!-- Case Type 1 - myCasesList.caseType1 -->
+					<td>{{mycase.caseType2}}</td><!-- Case Type 2 - myCasesList.caseType2 -->
+					<td>{{mycase.caseType3}}</td><!-- Case Type 3 - myCasesList.caseType3 -->
+					<td>{{mycase.status}}</td><!-- Status - myCasesList.status -->
+					<td>{{mycase.comments}}</td><!-- Comments - myCasesList.comments -->
+					<td>
+						<a class="btn" href="/myCases/{{mycase.id}}?page=${page}"><i class="icon-edit"></i> Edit</a>
+						<a class="btn" href="/myCases/delete/{{mycase.id}}?page=${page}"><i class="icon-delete"></i> Delete</a>
+					</td>
+				</tr>
+			
+			</tbody>
+		</table>
+</div>

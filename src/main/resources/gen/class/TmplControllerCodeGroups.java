@@ -1,0 +1,1 @@
+		res.setXYfield-name-tmplYXList(codeGroupsService.findByCode("XYcode-groupYX"));

@@ -1,0 +1,64 @@
+<mat-card>
+<form #mycasesForm="ngForm" (ngSubmit)="save(mycasesForm.value)">
+	<mat-card-header> <mat-card-title>
+	<h2>{{details.id ? 'Edit' : 'Add'}} Mycases</h2>
+	</mat-card-title> </mat-card-header>
+
+
+	<mat-card-actions>
+	<button mat-raised-button color="primary" type="submit"
+		[disabled]="!mycasesForm.form.valid">Save</button>
+	<button mat-raised-button color="secondary"
+		(click)="remove(details.id)" *ngIf="details.id" type="button">Delete</button>
+	<a mat-button routerLink="/mycases-list">Cancel</a> </mat-card-actions>
+
+	<input type="hidden" name="id" [(ngModel)]="details.id">
+
+	<mat-card-content> <mat-form-field>
+	<input matInput placeholder="Title" [(ngModel)]="details.title"
+		required name="title" #title> </mat-form-field> </mat-card-content>
+
+	<mat-card-content> <mat-form-field>
+	<mat-select [(ngModel)]="details.caseType1" name="caseType1"
+		placeholder="Case Type 1" required> <mat-option
+		*ngFor="let listItem of caseType1List"
+		[value]="listItem.value"> {{ listItem.description
+	}} </mat-option> </mat-select> </mat-form-field> </mat-card-content>
+
+	<mat-card-content> <mat-form-field>
+	<mat-select [(ngModel)]="details.caseType2" name="caseType2"
+		placeholder="Case Type 2" required> <mat-option
+		*ngFor="let listItem of caseType2List"
+		[value]="listItem.value"> {{ listItem.description
+	}} </mat-option> </mat-select> </mat-form-field> </mat-card-content>
+	<mat-card-content> <mat-form-field>
+	<mat-select [(ngModel)]="details.caseType3" name="caseType3"
+		placeholder="Case Type 3" required> <mat-option
+		*ngFor="let listItem of caseType3List"
+		[value]="listItem.value"> {{ listItem.description
+	}} </mat-option> </mat-select> </mat-form-field> </mat-card-content>
+	<mat-card-content> <mat-form-field>
+	<mat-select [(ngModel)]="details.status" name="status"
+		placeholder="Status" required> <mat-option
+		*ngFor="let listItem of statusList"
+		[value]="listItem.value"> {{ listItem.description
+	}} </mat-option> </mat-select> </mat-form-field> </mat-card-content>
+	<mat-card-content> <mat-form-field>
+	<mat-select [(ngModel)]="details.statusCode" name="statusCode"
+		placeholder="Status Code" required> <mat-option
+		*ngFor="let listItem of statusCodeList"
+		[value]="listItem.value"> {{ listItem.description
+	}} </mat-option> </mat-select> </mat-form-field> </mat-card-content>
+	<mat-card-content> <mat-form-field>
+	<textarea matInput placeholder="Comments"
+		[(ngModel)]="details.comments" required name="comments" #comments> </textarea></mat-form-field>
+	</mat-card-content>
+
+	<mat-card-actions>
+	<button mat-raised-button color="primary" type="submit"
+		[disabled]="!mycasesForm.form.valid">Save</button>
+	<button mat-raised-button color="secondary"
+		(click)="remove(details.id)" *ngIf="details.id" type="button">Delete</button>
+	<a mat-button routerLink="/mycases-list">Cancel</a> </mat-card-actions>
+</form>
+</mat-card>

@@ -1,0 +1,1 @@
+		XYfield-var-tmplYXList = codeGroupsService.findByCode("XYcode-groupYX");

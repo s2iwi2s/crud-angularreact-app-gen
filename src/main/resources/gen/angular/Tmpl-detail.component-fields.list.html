@@ -1,0 +1,8 @@
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>XYfield-label-tmplYX</mat-label>
+			<mat-select [(ngModel)]="details.XYfield-var-tmplYX.id" ngModelGroup="XYfield-var-tmplYX" name="id" placeholder="XYfield-label-tmplYX" XYfield-requiredYX #XYfield-var-tmplYX>
+				<mat-option *ngFor="let listItem of listService.XYfield-var-tmplYXList" [value]="listItem.id" > {{ listItem.description }} </mat-option>
+			</mat-select>
+		</mat-form-field>
+	</mat-card-content>

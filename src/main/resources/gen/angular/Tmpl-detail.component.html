@@ -1,0 +1,46 @@
+<mat-card>
+<form #XYCLASSYXForm="ngForm" (ngSubmit)="save(XYCLASSYXForm.value)">
+	<mat-card-header> <mat-card-title>
+	<h2>{{details.id ? 'Edit' : 'Add'}} XYCLASSYX</h2>
+	</mat-card-title> </mat-card-header>
+	<mat-card-actions>
+		<button mat-raised-button color="primary" type="submit"
+			[disabled]="!XYCLASSYXForm.form.valid">Save</button>
+		<a mat-raised-button [routerLink]="['/XYclass-kebabYX-add']" *ngIf="details.id">New</a>
+		<button mat-raised-button color="secondary"
+			(click)="remove(details.id)" *ngIf="details.id" type="button">Delete</button>
+		<a mat-raised-button routerLink="/XYclass-kebabYX-list">Cancel</a>
+	</mat-card-actions>
+
+	<input type="hidden" name="id" [(ngModel)]="details.id">
+	<!--
+	<mat-card-content> <mat-form-field>
+	<mat-select [(ngModel)]="details.caseType2" name="caseType2"
+		placeholder="Case Type 2" required> <mat-option
+		*ngFor="let listItem of caseType2List"
+		[value]="listItem.value"> {{ listItem.description
+	}} </mat-option> </mat-select> </mat-form-field> </mat-card-content>
+	-->
+	<!--
+	<mat-card-content> 
+		<mat-form-field>
+			<mat-label>Code</mat-label>
+			<input [(ngModel)]="details.code" type="text" name="value" matInput placeholder="Code" [formControl]="myControl" [matAutocomplete]="codeAuto" #code>
+			<mat-autocomplete #codeAuto="matAutocomplete">
+				<mat-option *ngFor="let option of filteredOptions | async" [value]="option" > {{ option }} </mat-option>
+			</mat-autocomplete>
+		</mat-form-field>
+	</mat-card-content>
+	-->
+XYdetail-fieldsYX
+
+	<mat-card-actions>
+		<button mat-raised-button color="primary" type="submit"
+			[disabled]="!XYCLASSYXForm.form.valid">Save</button>
+		<a mat-raised-button [routerLink]="['/XYclass-kebabYX-add']" *ngIf="details.id">New</a>
+		<button mat-raised-button color="secondary"
+			(click)="remove(details.id)" *ngIf="details.id" type="button">Delete</button>
+		<a mat-raised-button routerLink="/XYclass-kebabYX-list">Cancel</a>
+	</mat-card-actions>
+</form>
+</mat-card>

@@ -1,0 +1,1 @@
+			this.XYfield-var-tmplYXList = res.XYfield-var-tmplYXList;
