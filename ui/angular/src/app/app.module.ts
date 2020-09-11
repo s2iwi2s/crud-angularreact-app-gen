@@ -39,6 +39,9 @@ import { PartItemDetailComponent } from './part-item-detail/part-item-detail.com
 import { SerialItemListComponent } from './serial-item-list/serial-item-list.component'
 import { SerialItemDetailComponent, PartItemDialog } from './serial-item-detail/serial-item-detail.component'
 
+import { ProductListComponent } from './product-list/product-list.component'
+import { ProductDetailComponent } from './product-detail/product-detail.component'
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -52,6 +55,8 @@ import { SerialItemDetailComponent, PartItemDialog } from './serial-item-detail/
     SerialItemDetailComponent, PartItemDialog,
     MyCaseListComponent,
     MyCaseDetailComponent,
+    ProductListComponent,
+    ProductDetailComponent,
   ],
   imports: [
     BrowserModule,

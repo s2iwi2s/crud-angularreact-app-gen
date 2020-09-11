@@ -50,6 +50,9 @@ public class ProductService {
 	public List<Product> findBydescription(String description) {
 		return productDAO.findBydescription(description);
 	}
+	public List<Product> findBycategory(String category) {
+		return productDAO.findBycategory(category);
+	}
 	public List<Product> findByprice(String price) {
 		return productDAO.findByprice(price);
 	}

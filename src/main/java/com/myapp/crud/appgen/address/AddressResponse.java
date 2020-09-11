@@ -1,4 +1,4 @@
-package com.myapp.crud.appgen.product;
+package com.myapp.crud.appgen.address;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,21 +14,22 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class ProductResponse extends Response{
-	private Product product;
-	private Page productList;
+public class AddressResponse extends Response{
+	private Address address;
+	private Page addressList;
+
+	private List<Address> list;
 	
-	ProductListService listService;
-	public ProductResponse(ResponseStatus responseStatus) {
+	AddressListService listService;
+	public AddressResponse(ResponseStatus responseStatus) {
 		super(responseStatus);
 	}
 	
-	public ProductResponse(ResponseStatus responseStatus, ProductListService listService) {
+	public AddressResponse(ResponseStatus responseStatus, AddressListService listService) {
 		super(responseStatus);
 		this.listService = listService;
 	}
 /*
-	private List<CodeGroups> categoryList = new ArrayList<CodeGroups>();
 
 */
 }

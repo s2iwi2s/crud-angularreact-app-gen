@@ -2,9 +2,9 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { TextField, MenuItem, Button, FormControl, InputLabel } from '@material-ui/core';
 
-import CustomerService from '../../api/customer/CustomerService';
+import AddressService from '../../api/address/AddressService';
 
-export default class CustomerDetailComponent extends React.Component {
+export default class AddressDetailComponent extends React.Component {
 
   constructor(props) {
     super(props)
@@ -14,21 +14,17 @@ export default class CustomerDetailComponent extends React.Component {
   getBlankDetails = () => {
     return {
       "id": '',
-      "title": "",
-      "status": { "id": '' },
-      "caseType1": { "id": '' },
-      "caseType2": { "id": '' },
-      "caseType3": { "id": '' },
-      "statusCode": { "id": '' },
-      "comments": "",
-
-      "listService": {
-        "statusList": [],
-        "caseType1List": [],
-        "caseType2List": [],
-        "caseType3List": [],
-        "statusCodeList": []
-      }
+      "endUserId": '',
+      "endUser": { id: "", firstName: "", lastName: "" },
+      "name": "",
+      "address1": "",
+      "address2": "",
+      "city": "",
+      "state": "",
+      "country": "",
+      "zipCode": "",
+      "billTo": "",
+      "shipTo": ""
     }
   }
 
@@ -37,13 +33,12 @@ export default class CustomerDetailComponent extends React.Component {
   }
 
   retrieve = () => {
-    console.log(`[CustomerDetailComponent.retrieve] id==>${this.props.match.params.id}`)
-    CustomerService.get(this.props.match.params.id)
+    AddressService.get(this.props.match.params.id)
       .then(response => {
-        console.log(`[CustomerDetailComponent.retrieve] response==>`, response)
         let thestate = this.getBlankDetails();
         if (this.props.match.params.id > -1) {
-          thestate = response.data.customer;
+          thestate = response.data.address;
+          thestate.endUserId = thestate.endUser.id
         }
         thestate.listService = response.data.listService
         this.setState(thestate)
@@ -51,20 +46,28 @@ export default class CustomerDetailComponent extends React.Component {
   }
 
   save = () => {
-    console.log(`[CustomerDetailComponent.save] id==>${this.props.match.params.id}`)
-    CustomerService.save({
-      firstName: this.state.firstName,
-      lastName: this.state.lastName,
+    AddressService.save({
+      endUser: {
+        id: this.state.endUserId
+      },
+      name: this.state.name,
       address1: this.state.address1,
       address2: this.state.address2,
       city: this.state.city,
       state: this.state.state,
+      country: this.state.country,
+      zipCode: this.state.zipCode,
+      billTo: this.state.billTo,
+      shipTo: this.state.shipTo,
 
       id: this.state.id
     }).then(response => {
-      console.log(`[CustomerDetailComponent.save] response==>`, response)
-
-      this.props.history.push(`/customer-list`);
+      let routeUrl = `/address-list`;
+      let endUserId = this.props.match.params.endUserId
+      if (endUserId > 0) {
+        routeUrl = `/end-user-detail/${endUserId}`
+      }
+      this.props.history.push(routeUrl);
     })
   }
 
@@ -89,18 +92,17 @@ export default class CustomerDetailComponent extends React.Component {
   render = () => {
     return (
       <div className="container">
-        <Typography variant="h4">Customer Detail</Typography>
+        <Typography variant="h4">Address Detail</Typography>
         <form>
           <FormControl fullWidth margin="normal">
-            <InputLabel shrink id="firstName-label">First Name</InputLabel>
-            <TextField labelId="firstName-label"
-              name="firstName" value={this.state.firstName}
-              onChange={(e) => this.changeState(e)} />
+            <span>End User: {this.state.endUser.lastName}, {this.state.endUser.firstName}</span>
+            <input name="endUserId" type="hidden" value={this.state.endUserId} />
+
           </FormControl>
           <FormControl fullWidth margin="normal">
-            <InputLabel shrink id="lastName-label">Last Name</InputLabel>
-            <TextField labelId="lastName-label"
-              name="lastName" value={this.state.lastName}
+            <InputLabel shrink id="itemCode-label">Name</InputLabel>
+            <TextField labelId="itemCode-label"
+              name="name" value={this.state.name}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
@@ -127,10 +129,34 @@ export default class CustomerDetailComponent extends React.Component {
               name="state" value={this.state.state}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel shrink id="country-label">Country</InputLabel>
+            <TextField labelId="country-label"
+              name="country" value={this.state.country}
+              onChange={(e) => this.changeState(e)} />
+          </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel shrink id="zipCode-label">Zip</InputLabel>
+            <TextField labelId="zipCode-label"
+              name="zipCode" value={this.state.zipCode}
+              onChange={(e) => this.changeState(e)} />
+          </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel shrink id="billTo-label">Is Billing?</InputLabel>
+            <TextField labelId="billTo-label"
+              name="billTo" value={this.state.billTo}
+              onChange={(e) => this.changeState(e)} />
+          </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel shrink id="shipTo-label">Is Shipping?</InputLabel>
+            <TextField labelId="shipTo-label"
+              name="shipTo" value={this.state.shipTo}
+              onChange={(e) => this.changeState(e)} />
+          </FormControl>
 
 
           <Button variant="contained" color="primary" onClick={() => this.save()}>Save</Button>&nbsp;
-          <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/customer-list`)}>Cancel</Button>
+          <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/address-list`)}>Cancel</Button>
         </form>
 
       </div >

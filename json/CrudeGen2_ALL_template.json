@@ -287,6 +287,210 @@
 					"MAPPING": ""
 				}
 			]
+		},
+		{
+			"NAME": "Customer",
+			"FIELDS": [
+				{
+					"LABEL": "First Name",
+					"NAME": "firstName",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Last Name",
+					"NAME": "lastName",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Address 1",
+					"NAME": "address1",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Address 2",
+					"NAME": "address2",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "N"
+				},
+				{
+					"LABEL": "City",
+					"NAME": "city",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "State",
+					"NAME": "state",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Country",
+					"NAME": "country",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Zip",
+					"NAME": "zipCode",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				}
+			]
+		},
+		{
+			"NAME": "Product",
+			"FIELDS": [
+				{
+					"LABEL": "Item Code",
+					"NAME": "itemCode",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Description",
+					"NAME": "description",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Category",
+					"NAME": "category",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@ManyToOne",
+					"CODE_GROUP": "CATEGORY",
+					"LIST_TYPE": "CATEGORY",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Price",
+					"NAME": "price",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Quantity",
+					"NAME": "quantity",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				}
+			]
+		},
+		{
+			"NAME": "User",
+			"FIELDS": [
+				{
+					"LABEL": "First Name",
+					"NAME": "firstName",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Last Name",
+					"NAME": "lastName",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Address",
+					"NAME": "address",
+					"TYPE": "CodeGroups",
+					"MAPPING": "@OneToMany",
+					"REQUIRED": "Y"
+				}
+			]
+		},
+		{
+			"NAME": "Address",
+			"FIELDS": [
+				{
+					"LABEL": "User",
+					"NAME": "user",
+					"TYPE": "User",
+					"MAPPING": "@ManyToOne",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Name",
+					"NAME": "itemCode",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Address 1",
+					"NAME": "address1",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Address 2",
+					"NAME": "address2",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "N"
+				},
+				{
+					"LABEL": "City",
+					"NAME": "city",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "State",
+					"NAME": "state",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Country",
+					"NAME": "country",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Zip",
+					"NAME": "zipCode",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Is Billing?",
+					"NAME": "billTo",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Is Shipping?",
+					"NAME": "shipTo",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				}
+			]
 		}
 	]
 }

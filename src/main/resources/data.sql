@@ -4,7 +4,7 @@ Insert into HOME (ID,NAME,URLSTR) values (Home_ID_SEQ.NEXTVAL,'My Cases','/my-ca
 Insert into HOME (ID,NAME,URLSTR) values (Home_ID_SEQ.NEXTVAL,'Part Items','/part-item-list');
 Insert into HOME (ID,NAME,URLSTR) values (Home_ID_SEQ.NEXTVAL,'Serial Items','/serial-item-list');
 Insert into HOME (ID,NAME,URLSTR) values (Home_ID_SEQ.NEXTVAL,'Code Groups','/code-groups-list');
-Insert into HOME (ID,NAME,URLSTR) values (Home_ID_SEQ.NEXTVAL,'The Item','/the-item-list');
+Insert into HOME (ID,NAME,URLSTR) values (Home_ID_SEQ.NEXTVAL,'Products','/product-list');
 --Insert into HOME (ID,NAME,URL_STR) values (Home_ID_SEQ.NEXTVAL,'Authors','/author-list');
 --Insert into HOME (ID,NAME,URL_STR) values (Home_ID_SEQ.NEXTVAL,'Books','/books-list');
 
@@ -76,6 +76,8 @@ Insert into CODEGROUPS (ID,BOOL,CODE,DESCRIPTION,NUM,VALUE) values (CODEGROUPS_I
 Insert into CODEGROUPS (ID,BOOL,CODE,DESCRIPTION,NUM,VALUE) values (CODEGROUPS_ID_SEQ.NEXTVAL,null,'CASE_TYPE_3','dolorem',null,'dolorem');
 Insert into CODEGROUPS (ID,BOOL,CODE,DESCRIPTION,NUM,VALUE) values (CODEGROUPS_ID_SEQ.NEXTVAL,null,'CASE_TYPE_3','numquam',null,'numquam');
 Insert into CODEGROUPS (ID,BOOL,CODE,DESCRIPTION,NUM,VALUE) values (CODEGROUPS_ID_SEQ.NEXTVAL,null,'CASE_TYPE_3','labore',null,'labore');
+Insert into CODEGROUPS (ID,BOOL,CODE,DESCRIPTION,NUM,VALUE) values (CODEGROUPS_ID_SEQ.NEXTVAL,null,'CATEGORY','Dairy and Eggs',null,'Dairy and Eggs');
+Insert into CODEGROUPS (ID,BOOL,CODE,DESCRIPTION,NUM,VALUE) values (CODEGROUPS_ID_SEQ.NEXTVAL,null,'CATEGORY','Frozen Produce',null,'Frozen');
 
 Insert into PARTITEM (ID,DESCRIPTION,NAME,SERIALIZED) values (PARTITEM_ID_SEQ.NEXTVAL,'for A23-H234H-QW2','A23-H234H','Yes');
 Insert into PARTITEM (ID,DESCRIPTION,NAME,SERIALIZED) values (PARTITEM_ID_SEQ.NEXTVAL,'for B23-H234H-QW2','B23-H234H','No');
@@ -89,5 +91,15 @@ Insert into SERIALITEM (ID, DESCRIPTION, NAME, STATUS, PARTITEM_ID) values (SERI
 Insert into SERIALITEM (ID, DESCRIPTION, NAME, STATUS, PARTITEM_ID) values (SERIALITEM_ID_SEQ.NEXTVAL,'for A23-H234H','A23-H234H-QW4','Yes', 1);
 Insert into SERIALITEM (ID, DESCRIPTION, NAME, STATUS, PARTITEM_ID) values (SERIALITEM_ID_SEQ.NEXTVAL,'for A23-H234H','A23-H234H-QW5','Yes', 1);
 Insert into SERIALITEM (ID, DESCRIPTION, NAME, STATUS, PARTITEM_ID) values (SERIALITEM_ID_SEQ.NEXTVAL,'for A23-H234H','A23-H234H-QW6','Yes', 1);
+
+Insert into PRODUCT (ID, DESCRIPTION, ITEMCODE, PRICE, QUANTITY, CATEGORY_ID) values (PRODUCT_ID_SEQ.NEXTVAL,'Bear Brand','A23-H234H-123','23','6', 69);
+Insert into PRODUCT (ID, DESCRIPTION, ITEMCODE, PRICE, QUANTITY, CATEGORY_ID) values (PRODUCT_ID_SEQ.NEXTVAL,'Brussels Sprouts','A23-H234H-123','23','6', 70);
+
+Insert into ENDUSER (ID,FIRSTNAME, LASTNAME) values (ENDUSER_ID_SEQ.NEXTVAL,'Winston','Pidor');
+Insert into ENDUSER (ID,FIRSTNAME, LASTNAME) values (ENDUSER_ID_SEQ.NEXTVAL,'Bernadette','Pidor');
+
+Insert into ADDRESS (ID, NAME, ADDRESS1, ADDRESS2, CITY, STATE, COUNTRY, ZIPCODE, SHIPTO, BILLTO, ENDUSER_ID) values (ADDRESS_ID_SEQ.NEXTVAL,'Memhis Addr', '4795 Southern Hill Dr', '105','Memphis', 'TN', 'USA', '38125', 'Y', 'Y', 1);
+Insert into ADDRESS (ID, NAME, ADDRESS1, ADDRESS2, CITY, STATE, COUNTRY, ZIPCODE, SHIPTO, BILLTO, ENDUSER_ID) values (ADDRESS_ID_SEQ.NEXTVAL,'Cavite Addr', 'B12 L31 Bluejay St', 'Brgy. Molino IV', 'Bacoor','Luzon',  'PH', '4200', 'Y', 'Y', 1);
+
 
 

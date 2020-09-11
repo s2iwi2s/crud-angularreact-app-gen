@@ -1,4 +1,4 @@
-package com.myapp.crud.appgen.product;
+package com.myapp.crud.appgen.endUser;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,9 +12,12 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.myapp.crud.appgen.address.Address;
 import com.myapp.crud.appgen.codeGroups.CodeGroups;
 
 import lombok.Getter;
@@ -24,24 +27,22 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "product", catalog="case")
-public class Product {
+@Table(name = "endUser", catalog="case")
+public class EndUser {
 	@Id
 	
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "Product_ID_GEN")
-    @SequenceGenerator(name = "Product_ID_GEN", sequenceName = "Product_ID_SEQ", allocationSize = 1)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "EndUser_ID_GEN")
+    @SequenceGenerator(name = "EndUser_ID_GEN", sequenceName = "EndUser_ID_SEQ", allocationSize = 1)
     private Long id;
 
 	
-	private String itemCode;
+	private String firstName;
 	
-	private String description;
-	@ManyToOne
-	private CodeGroups category;
+	private String lastName;
 	
-	private String price;
-	
-	private String quantity;
+	@JsonIgnore
+	@OneToMany(mappedBy = "endUser")
+	private List<Address> address;
 
 }
 

@@ -16,6 +16,9 @@ import { PartItemDetailComponent } from './part-item-detail/part-item-detail.com
 import { SerialItemListComponent } from './serial-item-list/serial-item-list.component'
 import { SerialItemDetailComponent } from './serial-item-detail/serial-item-detail.component'
 
+import { ProductListComponent } from './product-list/product-list.component'
+import { ProductDetailComponent } from './product-detail/product-detail.component'
+
 const routes: Routes = [
   { path: '', redirectTo: '/home-list', pathMatch: 'full' },
   {
@@ -101,10 +104,27 @@ const routes: Routes = [
     path: 'serial-item-remove/:id',
     component: SerialItemListComponent,
   },
+
+  {
+    path: 'product-list',
+    component: ProductListComponent,
+  },
+  {
+    path: 'product-add',
+    component: ProductDetailComponent,
+  },
+  {
+    path: 'product-detail/:id',
+    component: ProductDetailComponent,
+  },
+  {
+    path: 'product-remove/:id',
+    component: ProductListComponent,
+  },
 ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

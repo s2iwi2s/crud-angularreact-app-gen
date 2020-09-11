@@ -22,9 +22,9 @@ import org.json.simple.parser.ParseException;
 public class CrudeGen2 {
 	public CrudeGen2() {
 		System.out.println("CrudeGen2 - STARTED...");
-		gen("CrudeGen_java.json");
-		gen("CrudeGen_react.json");
-		//gen("CrudeGen_angular.json");
+//		gen("CrudeGen_java.json");
+//		gen("CrudeGen_react.json");
+//		gen("CrudeGen_angular.json");
 		
 		System.out.println("CrudeGen2 - DONE!!!");
 	}

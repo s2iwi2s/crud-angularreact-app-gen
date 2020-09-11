@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { TextField, Select, MenuItem, Button, FormControl, InputLabel } from '@material-ui/core';
+import { TextField, MenuItem, Button, FormControl } from '@material-ui/core';
 
 import SerialItemService from '../../api/serialItem/SerialItemService';
 
@@ -33,7 +33,7 @@ export default class SerialItemDetailComponent extends React.Component {
   }
 
   componentDidMount = () => {
-      this.retrieve();
+    this.retrieve();
   }
 
   retrieve = () => {
@@ -42,9 +42,9 @@ export default class SerialItemDetailComponent extends React.Component {
       .then(response => {
         console.log(`[SerialItemDetailComponent.retrieve] response==>`, response)
         let thestate = this.getBlankDetails();
-		if (this.props.match.params.id > -1) {
-			thestate = response.data.serialItem;
-		}
+        if (this.props.match.params.id > -1) {
+          thestate = response.data.serialItem;
+        }
         thestate.listService = response.data.listService
         this.setState(thestate)
       })
@@ -53,12 +53,12 @@ export default class SerialItemDetailComponent extends React.Component {
   save = () => {
     console.log(`[SerialItemDetailComponent.save] id==>${this.props.match.params.id}`)
     SerialItemService.save({
-		name: this.state.name,
-		description: this.state.description,
-		partItem: this.state.partItem,
-		status: this.state.status,
+      name: this.state.name,
+      description: this.state.description,
+      partItem: this.state.partItem,
+      status: this.state.status,
 
-		id: this.state.id
+      id: this.state.id
     }).then(response => {
       console.log(`[SerialItemDetailComponent.save] response==>`, response)
 
@@ -71,7 +71,7 @@ export default class SerialItemDetailComponent extends React.Component {
       [e.target.name]: e.target.value
     })
   }
-  
+
   changeSelectState = (e) => {
     this.setState({
       [e.target.name]: { "id": e.target.value }

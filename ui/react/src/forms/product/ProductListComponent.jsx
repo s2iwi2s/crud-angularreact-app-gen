@@ -83,6 +83,7 @@ class ProductListComponent extends React.Component {
             <TableRow>
               <TableCell>Item Code</TableCell>
               <TableCell>Description</TableCell>
+              <TableCell>Category</TableCell>
               <TableCell>Price</TableCell>
               <TableCell>Quantity</TableCell>
 
@@ -94,6 +95,7 @@ class ProductListComponent extends React.Component {
               <TableRow key={row.id}>
                 <TableCell>{row.itemCode}</TableCell>
                 <TableCell>{row.description}</TableCell>
+                <TableCell>{row.category.value}</TableCell>
                 <TableCell>{row.price}</TableCell>
                 <TableCell>{row.quantity}</TableCell>
 

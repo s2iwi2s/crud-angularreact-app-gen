@@ -13,27 +13,21 @@ export default class ProductDetailComponent extends React.Component {
 
   getBlankDetails = () => {
     return {
-      "id": '',
-      "title": "",
-      "status": { "id": '' },
-      "caseType1": { "id": '' },
-      "caseType2": { "id": '' },
-      "caseType3": { "id": '' },
-      "statusCode": { "id": '' },
-      "comments": "",
+      "id": "",
+      "itemCode": "",
+      "description": "",
+      "category": { id: "" },
+      "price": "",
+      "quantity": "",
 
       "listService": {
-        "statusList": [],
-        "caseType1List": [],
-        "caseType2List": [],
-        "caseType3List": [],
-        "statusCodeList": []
+        "categoryList": []
       }
     }
   }
 
   componentDidMount = () => {
-      this.retrieve();
+    this.retrieve();
   }
 
   retrieve = () => {
@@ -42,9 +36,9 @@ export default class ProductDetailComponent extends React.Component {
       .then(response => {
         console.log(`[ProductDetailComponent.retrieve] response==>`, response)
         let thestate = this.getBlankDetails();
-		if (this.props.match.params.id > -1) {
-			thestate = response.data.product;
-		}
+        if (this.props.match.params.id > -1) {
+          thestate = response.data.product;
+        }
         thestate.listService = response.data.listService
         this.setState(thestate)
       })
@@ -53,12 +47,13 @@ export default class ProductDetailComponent extends React.Component {
   save = () => {
     console.log(`[ProductDetailComponent.save] id==>${this.props.match.params.id}`)
     ProductService.save({
-		itemCode: this.state.itemCode,
-		description: this.state.description,
-		price: this.state.price,
-		quantity: this.state.quantity,
+      itemCode: this.state.itemCode,
+      description: this.state.description,
+      category: this.state.category,
+      price: this.state.price,
+      quantity: this.state.quantity,
 
-		id: this.state.id
+      id: this.state.id
     }).then(response => {
       console.log(`[ProductDetailComponent.save] response==>`, response)
 
@@ -71,7 +66,7 @@ export default class ProductDetailComponent extends React.Component {
       [e.target.name]: e.target.value
     })
   }
-  
+
   changeSelectState = (e) => {
     this.setState({
       [e.target.name]: { "id": e.target.value }
@@ -90,26 +85,34 @@ export default class ProductDetailComponent extends React.Component {
         <Typography variant="h4">Product Detail</Typography>
         <form>
           <FormControl fullWidth margin="normal">
-			<InputLabel shrink id="itemCode-label">Item Code</InputLabel>
-            <TextField labelId="itemCode-label" 
+            <InputLabel shrink id="itemCode-label">Item Code</InputLabel>
+            <TextField labelId="itemCode-label"
               name="itemCode" value={this.state.itemCode}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
-			<InputLabel shrink id="description-label">Description</InputLabel>
-            <TextField labelId="description-label" 
+            <InputLabel shrink id="description-label">Description</InputLabel>
+            <TextField labelId="description-label"
               name="description" value={this.state.description}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
-			<InputLabel shrink id="price-label">Price</InputLabel>
-            <TextField labelId="price-label" 
+            <InputLabel shrink id="category-label">Category</InputLabel>
+            <Select labelId="category-label" placeholder="Enter Category"
+              name="category" value={this.state.category.id}
+              onChange={(e) => this.changeSelectState(e)}>
+              {this.renderOptions(this.state.listService.categoryList)}
+            </Select>
+          </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel shrink id="price-label">Price</InputLabel>
+            <TextField labelId="price-label"
               name="price" value={this.state.price}
               onChange={(e) => this.changeState(e)} />
           </FormControl>
           <FormControl fullWidth margin="normal">
-			<InputLabel shrink id="quantity-label">Quantity</InputLabel>
-            <TextField labelId="quantity-label" 
+            <InputLabel shrink id="quantity-label">Quantity</InputLabel>
+            <TextField labelId="quantity-label"
               name="quantity" value={this.state.quantity}
               onChange={(e) => this.changeState(e)} />
           </FormControl>

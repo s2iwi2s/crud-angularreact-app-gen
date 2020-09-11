@@ -1,6 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import { TextField, Select, MenuItem, Button, FormControl, InputLabel } from '@material-ui/core';
+import { TextField, MenuItem, Button, FormControl } from '@material-ui/core';
 
 import PartItemService from '../../api/partItem/PartItemService';
 
@@ -33,7 +33,7 @@ export default class PartItemDetailComponent extends React.Component {
   }
 
   componentDidMount = () => {
-      this.retrieve();
+    this.retrieve();
   }
 
   retrieve = () => {
@@ -42,9 +42,9 @@ export default class PartItemDetailComponent extends React.Component {
       .then(response => {
         console.log(`[PartItemDetailComponent.retrieve] response==>`, response)
         let thestate = this.getBlankDetails();
-		if (this.props.match.params.id > -1) {
-			thestate = response.data.partItem;
-		}
+        if (this.props.match.params.id > -1) {
+          thestate = response.data.partItem;
+        }
         thestate.listService = response.data.listService
         this.setState(thestate)
       })
@@ -53,11 +53,11 @@ export default class PartItemDetailComponent extends React.Component {
   save = () => {
     console.log(`[PartItemDetailComponent.save] id==>${this.props.match.params.id}`)
     PartItemService.save({
-		name: this.state.name,
-		description: this.state.description,
-		serialized: this.state.serialized,
+      name: this.state.name,
+      description: this.state.description,
+      serialized: this.state.serialized,
 
-		id: this.state.id
+      id: this.state.id
     }).then(response => {
       console.log(`[PartItemDetailComponent.save] response==>`, response)
 
@@ -70,7 +70,7 @@ export default class PartItemDetailComponent extends React.Component {
       [e.target.name]: e.target.value
     })
   }
-  
+
   changeSelectState = (e) => {
     this.setState({
       [e.target.name]: { "id": e.target.value }

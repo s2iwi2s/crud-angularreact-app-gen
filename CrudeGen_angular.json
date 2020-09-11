@@ -76,7 +76,7 @@
 	},
 	"OBJECTS": [
 		{
-			"NAME": "Customer",
+			"NAME": "EndUser",
 			"FIELDS": [
 				{
 					"LABEL": "First Name",
@@ -88,6 +88,32 @@
 				{
 					"LABEL": "Last Name",
 					"NAME": "lastName",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Address",
+					"NAME": "address",
+					"TYPE": "Address",
+					"MAPPING": "@OneToMany",
+					"REQUIRED": "Y"
+				}
+			]
+		},
+		{
+			"NAME": "Address",
+			"FIELDS": [
+				{
+					"LABEL": "EndUser",
+					"NAME": "endUser",
+					"TYPE": "EndUser",
+					"MAPPING": "@ManyToOne",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Name",
+					"NAME": "itemCode",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
@@ -115,40 +141,35 @@
 				},
 				{
 					"LABEL": "State",
-					"NAME": "lastName",
-					"TYPE": "String",
-					"MAPPING": "",
-					"REQUIRED": "Y"
-				}
-			]
-		},
-		{
-			"NAME": "Product",
-			"FIELDS": [
-				{
-					"LABEL": "Item Code",
-					"NAME": "itemCode",
+					"NAME": "state",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
 				},
 				{
-					"LABEL": "Description",
-					"NAME": "description",
+					"LABEL": "Country",
+					"NAME": "country",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
 				},
 				{
-					"LABEL": "Price",
-					"NAME": "price",
+					"LABEL": "Zip",
+					"NAME": "zipCode",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
 				},
 				{
-					"LABEL": "Quantity",
-					"NAME": "quantity",
+					"LABEL": "Is Billing?",
+					"NAME": "billTo",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Is Shipping?",
+					"NAME": "shipTo",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"

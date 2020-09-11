@@ -15,6 +15,10 @@ import CustomerListComponent from './forms/customer/CustomerListComponent';
 import CustomerDetailComponent from './forms/customer/CustomerDetailComponent';
 import ProductListComponent from './forms/product/ProductListComponent';
 import ProductDetailComponent from './forms/product/ProductDetailComponent';
+import EndUserListComponent from './forms/endUser/EndUserListComponent';
+import EndUserDetailComponent from './forms/endUser/EndUserDetailComponent';
+import AddressListComponent from './forms/address/AddressListComponent';
+import AddressDetailComponent from './forms/address/AddressDetailComponent';
 
 class AppRouting extends React.Component {
  render = () => {
@@ -37,6 +41,11 @@ class AppRouting extends React.Component {
        <Route path="/customer-detail/:id" exact component={CustomerDetailComponent} />
        <Route path="/product-list" exact component={ProductListComponent} />
        <Route path="/product-detail/:id" exact component={ProductDetailComponent} />
+       <Route path="/end-user-list" exact component={EndUserListComponent} />
+       <Route path="/end-user-detail/:id" exact component={EndUserDetailComponent} />
+       <Route path="/address-list" exact component={AddressListComponent} />
+       <Route path="/address-detail/:id/:endUserId" exact component={AddressDetailComponent} />
+       <Route path="/address-detail/:id" component={AddressDetailComponent} />
 
        <Route component={ErrorComponent} />
       </Switch>

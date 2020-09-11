@@ -1,4 +1,4 @@
-package com.myapp.crud.appgen.product;
+package com.myapp.crud.appgen.address;
 
 
 import java.util.List;
@@ -18,15 +18,13 @@ import lombok.Setter;
 @Setter
 @Component
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
-public class ProductListService {
+public class AddressListService {
 	@Autowired
 	private CodeGroupsService codeGroupsService;
 
-	private List<CodeGroups> categoryList = null;
 
 	
-	public ProductListService(CodeGroupsService codeGroupsService) {
-		categoryList = codeGroupsService.findByCode("CATEGORY");
+	public AddressListService(CodeGroupsService codeGroupsService) {
 
 	}
 }

@@ -1,4 +1,4 @@
-package com.myapp.crud.appgen.product;
+package com.myapp.crud.appgen.endUser;
 
 import java.util.List;
 
@@ -9,13 +9,11 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.myapp.crud.appgen.codeGroups.CodeGroups;
 
-public interface ProductDAO extends CrudRepository<Product, Long>{
+public interface EndUserDAO extends CrudRepository<EndUser, Long>{
 	public Page findAll(Pageable pageable);
-	public List<Product> findByitemCode(String itemCode);
-	public List<Product> findBydescription(String description);
-	public List<Product> findBycategory(String category);
-	public List<Product> findByprice(String price);
-	public List<Product> findByquantity(String quantity);
+	public List<EndUser> findByfirstName(String firstName);
+	public List<EndUser> findBylastName(String lastName);
+	public List<EndUser> findByaddress(String address);
 
 	@Query("select distinct c.code from com.myapp.crud.appgen.codeGroups.CodeGroups c")
 	public List<CodeGroups> findByDistinctCode();
