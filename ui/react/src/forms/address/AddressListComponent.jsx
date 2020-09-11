@@ -22,7 +22,7 @@ class AddressListComponent extends React.Component {
   retrieve = () => {
     //this.props.endUserId
     if (this.hasEndUser()) {
-      AddressService.getByUser(this.props.endUserId)
+      AddressService.getListByEndUser(this.props.endUserId)
         .then(response => {
           console.log(response)
           this.setState({

@@ -7,12 +7,16 @@ class AddressService {
   const theurl = `${URL_BASE}/addresss?page=${page}&size=${pageSize}`
   return axios.get(theurl);
  }
+ getListByEndUser = (endUserId) => {
+  const theurl = `${URL_BASE}/addresss/by/END_USER/${endUserId}`
+  return axios.get(theurl);
+ }
  get = (id) => {
   const theurl = `${URL_BASE}/addresss/${id}`
   return axios.get(theurl);
  }
- getByUser = (endUserId) => {
-  const theurl = `${URL_BASE}/addresss/END_USER/${endUserId}`
+ getByEndUser = (endUserId) => {
+  const theurl = `${URL_BASE}/addresss/endUser/${endUserId}`
   return axios.get(theurl);
  }
  delete = (id) => {

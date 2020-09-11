@@ -3,6 +3,7 @@ import Typography from '@material-ui/core/Typography';
 import { TextField, MenuItem, Button, FormControl, InputLabel } from '@material-ui/core';
 
 import AddressService from '../../api/address/AddressService';
+import EndUserService from '../../api/endUser/EndUserService';
 
 export default class AddressDetailComponent extends React.Component {
 
@@ -33,17 +34,28 @@ export default class AddressDetailComponent extends React.Component {
   }
 
   retrieve = () => {
-    AddressService.get(this.props.match.params.id)
-      .then(response => {
-        let thestate = this.getBlankDetails();
-        if (this.props.match.params.id > -1) {
+    console.log(`[AddressDetailComponent.retrieve] id=${this.props.match.params.id}, endUserId=${this.props.match.params.endUserId}`);
+    let thestate = this.getBlankDetails();
+    if (this.props.match.params.id < 1 && this.props.match.params.endUserId > 0) {
+      AddressService.getByEndUser(this.props.match.params.endUserId)
+        .then(response => {
+          console.log(`[AddressDetailComponent.retrieve] response=>`, response);
           thestate = response.data.address;
           thestate.endUserId = thestate.endUser.id
-        }
-        thestate.listService = response.data.listService
-        this.setState(thestate)
-      })
+          thestate.listService = response.data.listService
+          this.setState(thestate)
+        })
+    } else {
+      AddressService.get(this.props.match.params.id)
+        .then(response => {
+          thestate = response.data.address;
+          thestate.endUserId = thestate.endUser.id
+          thestate.listService = response.data.listService
+          this.setState(thestate)
+        })
+    }
   }
+
 
   save = () => {
     AddressService.save({
@@ -89,6 +101,13 @@ export default class AddressDetailComponent extends React.Component {
     )))
   }
 
+  cancel = () => {
+    if (this.props.match.params.endUserId > 0) {
+      this.props.history.push(`/end-user-detail/${this.props.match.params.endUserId}`)
+    } else {
+      this.props.history.push(`/address-list`)
+    }
+  }
   render = () => {
     return (
       <div className="container">
@@ -156,7 +175,7 @@ export default class AddressDetailComponent extends React.Component {
 
 
           <Button variant="contained" color="primary" onClick={() => this.save()}>Save</Button>&nbsp;
-          <Button variant="contained" color="primary" onClick={() => this.props.history.push(`/address-list`)}>Cancel</Button>
+          <Button variant="contained" color="primary" onClick={() => this.cancel()}>Cancel</Button>
         </form>
 
       </div >
