@@ -2,7 +2,8 @@
 
 * Springboot 2.3.3.RELEASE
 * React
-* JWT
+* JWT - in memory
+* Cors mapping to http://localhost:3000
 
 ### NOTE
 - This code is not complete. There are error's you need to manually fix
