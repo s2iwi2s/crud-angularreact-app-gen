@@ -3,7 +3,6 @@ import Typography from '@material-ui/core/Typography';
 import { TextField, MenuItem, Button, FormControl, InputLabel } from '@material-ui/core';
 
 import AddressService from '../../api/address/AddressService';
-import EndUserService from '../../api/endUser/EndUserService';
 
 export default class AddressDetailComponent extends React.Component {
 

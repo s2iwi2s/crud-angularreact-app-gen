@@ -17,6 +17,7 @@
 
 	<properties>
 		<java.version>1.8</java.version>
+		<jjwt.version>0.9.1</jjwt.version>
 		<frontend-bundle-dir>${project.parent.basedir}/ui/angular/dist/client/</frontend-bundle-dir>
 	</properties>
 
@@ -24,6 +25,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -43,6 +48,11 @@
 			<artifactId>spring-boot-devtools</artifactId>
 			<scope>runtime</scope>
 			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>io.jsonwebtoken</groupId>
+			<artifactId>jjwt</artifactId>
+			<version>${jjwt.version}</version>
 		</dependency>
 
 		<dependency>
@@ -158,9 +168,6 @@
 	<profiles>
 		<profile>
 			<id>build-angular</id>
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 			<properties>
 				<frontend-bundle-dir>${project.basedir}/ui/angular/dist/client/</frontend-bundle-dir>
 			</properties>
@@ -168,6 +175,9 @@
 
 		<profile>
 			<id>build-react</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 			<properties>
 				<frontend-bundle-dir>${project.basedir}/ui/react/build/</frontend-bundle-dir>
 			</properties>

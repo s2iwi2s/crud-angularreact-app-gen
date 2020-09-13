@@ -1,7 +1,8 @@
 import React from 'react';
-
 import Typography from '@material-ui/core/Typography';
-import { Table, TableHead, TableRow, TableCell, Button, TableBody, TablePagination } from '@material-ui/core';
+import { Table, TableHead, TableRow, TableCell, Button, TableBody, TablePagination, FormControl, Input } from '@material-ui/core';
+import SearchIcon from '@material-ui/icons/Search';
+
 import AddressService from '../../api/address/AddressService';
 
 class AddressListComponent extends React.Component {
@@ -83,6 +84,13 @@ class AddressListComponent extends React.Component {
   hasEndUser = () => {
     return this.props.endUserId > 0;
   }
+
+  changeState = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
   renderPagination = () => {
     if (this.hasEndUser()) {
       return (<></>);
@@ -98,17 +106,24 @@ class AddressListComponent extends React.Component {
       />
     )
   }
+
   render = () => {
     let hsize = 'h4';
     if (this.hasEndUser()) {
       hsize = 'h5';
     }
-    console.log(`[AddressListComponent.render] endUserId=${this.props.endUserId}, hsize = ${hsize}`)
     return (
       <div className="container">
         <Typography variant={hsize}>Address</Typography>
         {this.renderPagination()}
 
+        <div className="text-right">
+          <FormControl variant="filled">
+            <Input placeholder="Search"
+              endAdornment={<SearchIcon />}
+            />
+          </FormControl>
+        </div>
         <Table>
           <TableHead>
             <TableRow>

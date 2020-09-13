@@ -19,6 +19,9 @@ import EndUserListComponent from './forms/endUser/EndUserListComponent';
 import EndUserDetailComponent from './forms/endUser/EndUserDetailComponent';
 import AddressListComponent from './forms/address/AddressListComponent';
 import AddressDetailComponent from './forms/address/AddressDetailComponent';
+import LoginComponent from './security/LoginComponent'
+import LogoutComponent from './security/LogoutComponent'
+import AuthenticatedRoute from './security/AuthenticatedRoute'
 
 class AppRouting extends React.Component {
  render = () => {
@@ -27,28 +30,32 @@ class AppRouting extends React.Component {
     <Router>
      <>
       <HeaderComponent />
-      <Switch>
-       <Route path="/" exact component={HomeListComponent} />
-       <Route path="/home" exact component={HomeListComponent} />
-       <Route path="/home-detail/:id" exact component={HomeDetailComponent} />
-       <Route path="/my-case-list" exact component={MyCaseListComponent} />
-       <Route path="/my-case-detail/:id" exact component={MyCaseDetailComponent} />
-       <Route path="/part-item-list" exact component={PartItemListComponent} />
-       <Route path="/part-item-detail/:id" exact component={PartItemDetailComponent} />
-       <Route path="/serial-item-list" exact component={SerialItemListComponent} />
-       <Route path="/serial-item-detail/:id" exact component={SerialItemDetailComponent} />
-       <Route path="/customer-list" exact component={CustomerListComponent} />
-       <Route path="/customer-detail/:id" exact component={CustomerDetailComponent} />
-       <Route path="/product-list" exact component={ProductListComponent} />
-       <Route path="/product-detail/:id" exact component={ProductDetailComponent} />
-       <Route path="/end-user-list" exact component={EndUserListComponent} />
-       <Route path="/end-user-detail/:id" exact component={EndUserDetailComponent} />
-       <Route path="/address-list" exact component={AddressListComponent} />
-       <Route path="/address-detail/:id/:endUserId" exact component={AddressDetailComponent} />
-       <Route path="/address-detail/:id" component={AddressDetailComponent} />
+      <div className="container">
+       <Switch>
+        <Route path="/" exact component={LoginComponent} />
+        <Route path="/login" component={LoginComponent} />
+        <AuthenticatedRoute path="/logout" component={LogoutComponent} />
+        <AuthenticatedRoute path="/home" exact component={HomeListComponent} />
+        <AuthenticatedRoute path="/home-detail/:id" exact component={HomeDetailComponent} />
+        <AuthenticatedRoute path="/my-case-list" exact component={MyCaseListComponent} />
+        <AuthenticatedRoute path="/my-case-detail/:id" exact component={MyCaseDetailComponent} />
+        <AuthenticatedRoute path="/part-item-list" exact component={PartItemListComponent} />
+        <AuthenticatedRoute path="/part-item-detail/:id" exact component={PartItemDetailComponent} />
+        <AuthenticatedRoute path="/serial-item-list" exact component={SerialItemListComponent} />
+        <AuthenticatedRoute path="/serial-item-detail/:id" exact component={SerialItemDetailComponent} />
+        <AuthenticatedRoute path="/customer-list" exact component={CustomerListComponent} />
+        <AuthenticatedRoute path="/customer-detail/:id" exact component={CustomerDetailComponent} />
+        <AuthenticatedRoute path="/product-list" exact component={ProductListComponent} />
+        <AuthenticatedRoute path="/product-detail/:id" exact component={ProductDetailComponent} />
+        <AuthenticatedRoute path="/end-user-list" exact component={EndUserListComponent} />
+        <AuthenticatedRoute path="/end-user-detail/:id" exact component={EndUserDetailComponent} />
+        <AuthenticatedRoute path="/address-list" exact component={AddressListComponent} />
+        <AuthenticatedRoute path="/address-detail/:id/:endUserId" exact component={AddressDetailComponent} />
+        <AuthenticatedRoute path="/address-detail/:id" component={AddressDetailComponent} />
 
-       <Route component={ErrorComponent} />
-      </Switch>
+        <Route component={ErrorComponent} />
+       </Switch>
+      </div>
       <FooterComponent />
      </>
     </Router>
