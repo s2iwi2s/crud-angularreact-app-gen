@@ -1,3 +1,9 @@
+# Url = http://localhost:8081/
+
+* Springboot 2.3.3.RELEASE
+* React
+* JWT
+
 ### NOTE
 - This code is not complete. There are error's you need to manually fix
 - THIS IS CONFIGURED: spring.jpa.hibernate.ddl-auto=create-drop
