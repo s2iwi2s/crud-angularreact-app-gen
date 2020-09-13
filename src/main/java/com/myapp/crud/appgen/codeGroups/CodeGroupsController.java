@@ -42,7 +42,7 @@ public class CodeGroupsController {
 	}
 
 	@GetMapping("/codeGroups")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public CodeGroupsResponse list(Pageable pageable) {
 		System.out.println("\n*** ENTERED ==>/codeGroupsList");
 		ResponseStatus status = new ResponseStatus();
@@ -64,7 +64,7 @@ public class CodeGroupsController {
 	}
 
 	@DeleteMapping("/codeGroups/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public CodeGroupsResponse delete(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/codeGroups/delete/" + id);
 
@@ -84,7 +84,7 @@ public class CodeGroupsController {
 	}
 
 	@GetMapping("/codeGroups/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public CodeGroupsResponse get(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/codeGroups/" + id);
 		CodeGroups codeGroups = null;
@@ -119,7 +119,7 @@ public class CodeGroupsController {
 	}
 
 	@PostMapping(path = "/codeGroups", consumes = { MediaType.APPLICATION_JSON_VALUE })
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public CodeGroups save(@RequestBody CodeGroups codeGroups) {
 		System.out.println("\n*** ENTERED ==>codeGroups/save");
 		ResponseStatus status = new ResponseStatus();

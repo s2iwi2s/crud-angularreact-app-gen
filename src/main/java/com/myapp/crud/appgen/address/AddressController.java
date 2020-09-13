@@ -48,7 +48,7 @@ public class AddressController {
 	}
 
 	@GetMapping("/addresss")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public AddressResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
 //		  @SortDefault.SortDefaults({
 //		  @SortDefault(sort = "dateRecorded", direction = Sort.Direction.DESC),
@@ -75,7 +75,7 @@ public class AddressController {
 	}
 
 	@DeleteMapping("/addresss/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public AddressResponse delete(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/address/" + id);
 
@@ -95,7 +95,7 @@ public class AddressController {
 	}
 
 	@GetMapping("/addresss/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public AddressResponse get(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/address/" + id);
 		Address address = null;
@@ -117,7 +117,7 @@ public class AddressController {
 		return res;
 	}
 	@GetMapping("/addresss/endUser/{endUserId}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public AddressResponse getByEndUser(@PathVariable("endUserId") Long endUserId) {
 		System.out.println("\n*** ENTERED ==>/address/endUser/" + endUserId);
 		Address address = null;
@@ -141,7 +141,7 @@ public class AddressController {
 	}
 	
 	@GetMapping("/addresss/by/{searchType}/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public AddressResponse getByEndUser(@PathVariable("searchType") String searchType, @PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/address/"+searchType+"/" + id);
 		List<Address> list = new ArrayList<Address>();
@@ -166,7 +166,7 @@ public class AddressController {
 	}
 
 	@PostMapping(path = "/addresss", consumes = { MediaType.APPLICATION_JSON_VALUE })
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public Address save(@RequestBody Address address) {
 		System.out.println("\n*** ENTERED ==>address/save");
 		ResponseStatus status = new ResponseStatus();

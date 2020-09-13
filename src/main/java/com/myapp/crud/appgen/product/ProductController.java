@@ -39,7 +39,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/products")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public ProductResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
 //		  @SortDefault.SortDefaults({
 //		  @SortDefault(sort = "dateRecorded", direction = Sort.Direction.DESC),
@@ -66,7 +66,7 @@ public class ProductController {
 	}
 
 	@DeleteMapping("/products/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public ProductResponse delete(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/product/" + id);
 
@@ -86,7 +86,7 @@ public class ProductController {
 	}
 
 	@GetMapping("/products/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public ProductResponse get(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/product/" + id);
 		Product product = null;
@@ -109,7 +109,7 @@ public class ProductController {
 	}
 
 	@PostMapping(path = "/products", consumes = { MediaType.APPLICATION_JSON_VALUE })
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public Product save(@RequestBody Product product) {
 		System.out.println("\n*** ENTERED ==>product/save");
 		ResponseStatus status = new ResponseStatus();

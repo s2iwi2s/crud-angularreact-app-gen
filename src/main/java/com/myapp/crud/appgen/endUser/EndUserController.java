@@ -39,7 +39,7 @@ public class EndUserController {
 	}
 
 	@GetMapping("/endUsers")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	////@CrossOrigin(origins = Constants.CLIENT_URL)
 	public EndUserResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
 //		  @SortDefault.SortDefaults({
 //		  @SortDefault(sort = "dateRecorded", direction = Sort.Direction.DESC),
@@ -66,7 +66,7 @@ public class EndUserController {
 	}
 
 	@DeleteMapping("/endUsers/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	////@CrossOrigin(origins = Constants.CLIENT_URL)
 	public EndUserResponse delete(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/endUser/" + id);
 
@@ -86,7 +86,7 @@ public class EndUserController {
 	}
 
 	@GetMapping("/endUsers/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	////@CrossOrigin(origins = Constants.CLIENT_URL)
 	public EndUserResponse get(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/endUser/" + id);
 		EndUser endUser = null;
@@ -109,7 +109,7 @@ public class EndUserController {
 	}
 
 	@PostMapping(path = "/endUsers", consumes = { MediaType.APPLICATION_JSON_VALUE })
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	////@CrossOrigin(origins = Constants.CLIENT_URL)
 	public EndUser save(@RequestBody EndUser endUser) {
 		System.out.println("\n*** ENTERED ==>endUser/save");
 		ResponseStatus status = new ResponseStatus();

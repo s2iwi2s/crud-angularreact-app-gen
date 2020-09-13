@@ -39,7 +39,7 @@ public class MyCaseController {
 	}
 
 	@GetMapping("/myCases")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public MyCaseResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
 //		  @SortDefault.SortDefaults({
 //		  @SortDefault(sort = "dateRecorded", direction = Sort.Direction.DESC),
@@ -66,7 +66,7 @@ public class MyCaseController {
 	}
 
 	@DeleteMapping("/myCases/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public MyCaseResponse delete(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/myCase/" + id);
 
@@ -86,7 +86,7 @@ public class MyCaseController {
 	}
 
 	@GetMapping("/myCases/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public MyCaseResponse get(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/myCase/" + id);
 		MyCase myCase = null;
@@ -109,7 +109,7 @@ public class MyCaseController {
 	}
 
 	@PostMapping(path = "/myCases", consumes = { MediaType.APPLICATION_JSON_VALUE })
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public MyCase save(@RequestBody MyCase myCase) {
 		System.out.println("\n*** ENTERED ==>myCase/save");
 		ResponseStatus status = new ResponseStatus();

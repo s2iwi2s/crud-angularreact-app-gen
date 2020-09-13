@@ -44,7 +44,7 @@ public class PartItemController {
 	}
 
 	@GetMapping("/partItems")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public PartItemResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
 //		  @SortDefault.SortDefaults({
 //		  @SortDefault(sort = "dateRecorded", direction = Sort.Direction.DESC),
@@ -71,7 +71,7 @@ public class PartItemController {
 	}
 
 	@DeleteMapping("/partItems/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public PartItemResponse delete(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/partItem/" + id);
 
@@ -91,7 +91,7 @@ public class PartItemController {
 	}
 
 	@GetMapping("/partItems/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public PartItemResponse get(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/partItem/" + id);
 		PartItem partItem = null;
@@ -114,7 +114,7 @@ public class PartItemController {
 		return res;
 	}
 	@GetMapping("/partItems/by/{name}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public PartItemResponse getByName(@PathVariable("name") String name) {
 		System.out.println("\n*** ENTERED ==>/partItem/" + name);
 		List<PartItem> partItems = null;
@@ -149,7 +149,7 @@ public class PartItemController {
 	}
 
 	@PostMapping(path = "/partItems", consumes = { MediaType.APPLICATION_JSON_VALUE })
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public PartItem save(@RequestBody PartItem partItem) {
 		System.out.println("\n*** ENTERED ==>partItem/save");
 		ResponseStatus status = new ResponseStatus();

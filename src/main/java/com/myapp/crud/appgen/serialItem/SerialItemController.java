@@ -44,7 +44,7 @@ public class SerialItemController {
 	}
 
 	@GetMapping("/serialItems")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public SerialItemResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
 //		  @SortDefault.SortDefaults({
 //		  @SortDefault(sort = "dateRecorded", direction = Sort.Direction.DESC),
@@ -71,7 +71,7 @@ public class SerialItemController {
 	}
 
 	@DeleteMapping("/serialItems/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public SerialItemResponse delete(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/serialItem/" + id);
 
@@ -91,7 +91,7 @@ public class SerialItemController {
 	}
 
 	@GetMapping("/serialItems/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public SerialItemResponse get(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/serialItem/" + id);
 		SerialItem serialItem = null;
@@ -125,7 +125,7 @@ public class SerialItemController {
 	}
 
 	@PostMapping(path = "/serialItems", consumes = { MediaType.APPLICATION_JSON_VALUE })
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public SerialItem save(@RequestBody SerialItem serialItem) {
 		System.out.println("\n*** ENTERED ==>serialItem/save");
 		ResponseStatus status = new ResponseStatus();

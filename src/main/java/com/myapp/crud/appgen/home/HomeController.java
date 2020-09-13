@@ -43,7 +43,7 @@ public class HomeController {
 	}
 
 	@GetMapping("/home/list")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public HomeResponse list(@PageableDefault(page = Constants.DEFAULT_PAGE_NUMBER, size = Constants.DEFAULT_PAGE_SIZE)
 //		  @SortDefault.SortDefaults({
 //		  @SortDefault(sort = "dateRecorded", direction = Sort.Direction.DESC),
@@ -70,7 +70,7 @@ public class HomeController {
 	}
 
 	@GetMapping("/home/delete/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public HomeResponse delete(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/home/delete/" + id);
 
@@ -90,7 +90,7 @@ public class HomeController {
 	}
 
 	@GetMapping("/home/{id}")
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public HomeResponse get(@PathVariable("id") Long id) {
 		System.out.println("\n*** ENTERED ==>/home/" + id);
 		Home home = null;
@@ -124,7 +124,7 @@ public class HomeController {
 	}
 
 	@PostMapping(path = "/home/save", consumes = { MediaType.APPLICATION_JSON_VALUE })
-	@CrossOrigin(origins = Constants.CLIENT_URL)
+	//@CrossOrigin(origins = Constants.CLIENT_URL)
 	public Home save(@RequestBody Home home) {
 		System.out.println("\n*** ENTERED ==>home/save");
 		ResponseStatus status = new ResponseStatus();
