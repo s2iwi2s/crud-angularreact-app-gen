@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "partItem", catalog="case")
+@Table(name = "partItem")
 public class PartItem {
 	@Id
 	

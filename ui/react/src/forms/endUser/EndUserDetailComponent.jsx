@@ -15,6 +15,7 @@ export default class EndUserDetailComponent extends React.Component {
   getBlankDetails = () => {
     return {
       "id": "",
+      "userName": '',
       "firstName": '',
       "lastName": "",
       "address": []
@@ -42,6 +43,8 @@ export default class EndUserDetailComponent extends React.Component {
   save = () => {
     console.log(`[EndUserDetailComponent.save] id==>${this.props.match.params.id}`)
     EndUserService.save({
+      userName: this.state.userName,
+      password: this.state.password,
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       address: this.state.address,
@@ -80,6 +83,24 @@ export default class EndUserDetailComponent extends React.Component {
       <div className="container">
         <Typography variant="h4">User Detail</Typography>
         <form>
+          <FormControl fullWidth margin="normal">
+            <InputLabel shrink id="userName-label">User Name</InputLabel>
+            <TextField labelId="userName-label"
+              name="userName" value={this.state.userName}
+              onChange={(e) => this.changeState(e)} />
+          </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel shrink id="password-label">Password</InputLabel>
+            <TextField labelId="password-label" type="password"
+              name="password" value={this.state.password}
+              onChange={(e) => this.changeState(e)} />
+          </FormControl>
+          <FormControl fullWidth margin="normal">
+            <InputLabel shrink id="firstName-label">First Name</InputLabel>
+            <TextField labelId="firstName-label"
+              name="firstName" value={this.state.firstName}
+              onChange={(e) => this.changeState(e)} />
+          </FormControl>
           <FormControl fullWidth margin="normal">
             <InputLabel shrink id="firstName-label">First Name</InputLabel>
             <TextField labelId="firstName-label"

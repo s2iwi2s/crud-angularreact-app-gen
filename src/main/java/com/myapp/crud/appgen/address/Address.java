@@ -28,10 +28,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "address", catalog="case")
+@Table(name = "address")
 public class Address {
 	@Id
-	
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "Address_ID_GEN")
     @SequenceGenerator(name = "Address_ID_GEN", sequenceName = "Address_ID_SEQ", allocationSize = 1)
     private Long id;

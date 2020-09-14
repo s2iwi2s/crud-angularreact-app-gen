@@ -9,6 +9,7 @@ class AddressListComponent extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      searchAddress: '',
       list: [],
       paging: {
         rowsPerPage: 25,
@@ -107,6 +108,10 @@ class AddressListComponent extends React.Component {
     )
   }
 
+  searchAddress = () => {
+
+  }
+
   render = () => {
     let hsize = 'h4';
     if (this.hasEndUser()) {
@@ -119,8 +124,9 @@ class AddressListComponent extends React.Component {
 
         <div className="text-right">
           <FormControl variant="filled">
-            <Input placeholder="Search"
-              endAdornment={<SearchIcon />}
+            <Input name="searchAddress" value={this.state.searchAddress}
+              onChange={(e) => this.changeState(e)} placeholder="Search"
+              endAdornment={<SearchIcon onClick={() => this.searchAddress()} />}
             />
           </FormControl>
         </div>

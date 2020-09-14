@@ -24,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "product", catalog="case")
+@Table(name = "product")
 public class Product {
 	@Id
 	

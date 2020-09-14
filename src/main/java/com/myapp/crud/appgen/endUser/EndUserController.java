@@ -96,6 +96,7 @@ public class EndUserController {
 			endUser = endUserService.findById(id);
 			status.setMessage("SUCCESS!");
 //			jInfo(endUser);
+			endUser.setPassword("");
 		} catch (Exception e) {
 			endUser = new EndUser();
 			e.printStackTrace();
@@ -128,6 +129,7 @@ public class EndUserController {
 			status.setException(e);
 			e.printStackTrace();
 		}
+		endUser.setPassword("");
 		res.setEndUser(endUser);
 		System.out.println("END ==>endUser/save");
 		return endUser;

@@ -392,11 +392,18 @@
 			]
 		},
 		{
-			"NAME": "User",
+			"NAME": "EndUser",
 			"FIELDS": [
 				{
-					"LABEL": "First Name",
-					"NAME": "firstName",
+					"LABEL": "User Name",
+					"NAME": "userName",
+					"TYPE": "String",
+					"MAPPING": "",
+					"REQUIRED": "Y"
+				},
+				{
+					"LABEL": "Password",
+					"NAME": "password",
 					"TYPE": "String",
 					"MAPPING": "",
 					"REQUIRED": "Y"
@@ -411,7 +418,7 @@
 				{
 					"LABEL": "Address",
 					"NAME": "address",
-					"TYPE": "CodeGroups",
+					"TYPE": "Address",
 					"MAPPING": "@OneToMany",
 					"REQUIRED": "Y"
 				}
@@ -421,9 +428,9 @@
 			"NAME": "Address",
 			"FIELDS": [
 				{
-					"LABEL": "User",
-					"NAME": "user",
-					"TYPE": "User",
+					"LABEL": "EndUser",
+					"NAME": "endUser",
+					"TYPE": "EndUser",
 					"MAPPING": "@ManyToOne",
 					"REQUIRED": "Y"
 				},

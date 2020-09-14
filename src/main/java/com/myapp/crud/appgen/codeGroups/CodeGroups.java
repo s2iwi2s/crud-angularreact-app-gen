@@ -19,10 +19,9 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
-@Table(name = "codeGroups", catalog="case")
+@Table(name = "codeGroups")
 public class CodeGroups {
 	@Id
-	
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator = "CodeGroups_ID_GEN")
     @SequenceGenerator(name = "CodeGroups_ID_GEN", sequenceName = "CodeGroups_ID_SEQ", allocationSize=1)
     private Long id;

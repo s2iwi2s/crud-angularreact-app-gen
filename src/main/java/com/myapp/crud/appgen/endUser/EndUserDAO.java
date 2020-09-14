@@ -11,6 +11,7 @@ import com.myapp.crud.appgen.codeGroups.CodeGroups;
 
 public interface EndUserDAO extends CrudRepository<EndUser, Long>{
 	public Page findAll(Pageable pageable);
+	public EndUser findByUserName(String userName);
 	public List<EndUser> findByfirstName(String firstName);
 	public List<EndUser> findBylastName(String lastName);
 	public List<EndUser> findByaddress(String address);
