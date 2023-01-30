@@ -1,7 +1,8 @@
 # Url = http://localhost:8081/
 
 * Springboot 2.3.3.RELEASE
-* React
+* angular/core=7.2.6
+* react=16.13.1
 * JWT - in memory
 * Cors mapping to http://localhost:3000
 
